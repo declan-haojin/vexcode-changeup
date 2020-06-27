@@ -21,8 +21,8 @@ void encoder_reset();
 void all_reset();
 
 ////////////////////////////// OTHERS //////////////////////////////
-void controller_print(string s, int x);
-void controller_print(string s, double x);
+// void controller_print(string s, int x);
+// void controller_print(string s, double x);
 
 ////////////////////////////// MOTOR ROTATION //////////////////////////////
 #define LF_DEG fabs(motorLF.rotation(deg))
@@ -41,4 +41,7 @@ void controller_print(string s, double x);
 #define LB_V abs(motorLB.velocity(pct))
 #define RF_V abs(motorRF.velocity(pct))
 #define RB_V abs(motorRB.velocity(pct))
+
+////////////////////////////// PRINT //////////////////////////////
+#define controller_print(str, x) controller1.Screen.clearScreen();controller1.Screen.setCursor(1, 1);controller1.Screen.print(str);controller1.Screen.print("%d", x);
 

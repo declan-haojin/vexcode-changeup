@@ -30,6 +30,9 @@ void usercontrol(void) {
     controller1.Screen.clearScreen();
     controller1.Screen.setCursor(1, 1);
     controller1.Screen.print("The degree is %f", encoderLeft.position(degrees));
+    
+    controller_print("string s", 5);
+    
     //test
     if(BUTTON_X) blue1();
     wait(20, msec); 
