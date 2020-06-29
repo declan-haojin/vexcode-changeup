@@ -48,7 +48,7 @@ using namespace std;
 #define PRIMITIVE_HOLD_MOOD
 
 ////////////////////////////// ENCODER TYPE //////////////////////////////
-#define INTERNAL_ENCODER_MOOD
+#define EXTERNAL_ENCODER_MOOD
 
 ////////////////////////////// EXTERN //////////////////////////////
 extern brain Brain;

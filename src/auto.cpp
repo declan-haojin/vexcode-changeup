@@ -5,8 +5,13 @@
 
 double chassis_deg()
 {
+  #ifdef EXTERNAL_ENCODER_MOOD
+  return (LEFT_DEG + RIGHT_DEG) * 0.5;
+  #else
   double chassisDeg[4] = {LF_DEG, LB_DEG, RF_DEG, RB_DEG};
+  std::sort(chassisDeg, chassisDeg + 1);
   return (chassisDeg[1] + chassisDeg[2]) * 0.5;
+  #endif
 }
 
 void chassis_stop()

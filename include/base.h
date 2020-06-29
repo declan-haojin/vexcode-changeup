@@ -30,8 +30,12 @@ void all_reset();
 #define RF_DEG fabs(motorRF.rotation(deg))
 #define RB_DEG fabs(motorRB.rotation(deg))
 
+#ifdef EXTERNAL_ENCODER_MOOD
+
 #define LEFT_DEG fabs(encoderLeft.position(degrees))
 #define RIGHT_DEG fabs(encoderRight.position(degrees))
+
+#endif
 
 ////////////////////////////// SENSOR ROTATION //////////////////////////////
 #define INERT_DEG fabs(inert.rotation(degrees))
