@@ -20,10 +20,6 @@ void inert_reset();
 void encoder_reset();
 void all_reset();
 
-////////////////////////////// OTHERS //////////////////////////////
-// void controller_print(string s, int x);
-// void controller_print(string s, double x);
-
 ////////////////////////////// MOTOR ROTATION //////////////////////////////
 #define LF_DEG fabs(motorLF.rotation(deg))
 #define LB_DEG fabs(motorLB.rotation(deg))

@@ -93,19 +93,3 @@ void all_reset()
   grab_reset();
   encoder_reset();
 }
-
-// void controller_print(string s, int x)
-// {
-//   controller1.Screen.clearScreen();
-//   controller1.Screen.setCursor(1, 1);
-//   controller1.Screen.print(s);
-//   controller1.Screen.print("%d",x);
-// }
-
-// void controller_print(string s, double x)
-// {
-//   controller1.Screen.clearScreen();
-//   controller1.Screen.setCursor(1, 1);
-//   controller1.Screen.print(s);
-//   controller1.Screen.print("%f", x);
-// }

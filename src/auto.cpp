@@ -2,7 +2,6 @@
 #include "auto.h"
 #include <algorithm>
 
-
 double chassis_deg()
 {
   #ifdef EXTERNAL_ENCODER_MOOD

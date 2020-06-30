@@ -1,7 +1,6 @@
 #include "manual.h"
 #include "base.h"
 
-
 void chassis_manual_basic()
 {
   m_group(chassisLeft, (AXIS_3+AXIS_4) * SENS);
