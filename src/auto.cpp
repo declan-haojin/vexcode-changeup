@@ -57,7 +57,7 @@ int PID()
   }
   while(enablePID)
   {
-    double averageDis = (LF_DEG + LB_DEG + RF_DEG + RB_DEG) * 0.5;
+    double averageDis = chassis_deg();
     error = desiredDis - averageDis;
     derivative = error - lastError;
     lastError = error;

@@ -67,6 +67,8 @@ using namespace std;
 /*----------------------------------------------------------------------------*/
 #define EXTERNAL_ENCODER_MOOD
 
+
+
 ////////////////////////////// EXTERN //////////////////////////////
 extern brain Brain;
 extern controller controller1;
