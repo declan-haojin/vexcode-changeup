@@ -8,8 +8,8 @@ competition Competition;
 
 void test()
 {
-  chassis_turn_inerial_control(-37);
-  controller_print("The deg is ", INERT_DEG);
+  if(BUTTON_X) blue1();
+  controller_print("The degree is ", (int)INERT_DEG);
 }
 
 void pre_auton(void) {
@@ -27,14 +27,16 @@ void usercontrol(void) {
     arm_manual_basic();
     support_manual_basic();
 
-    controller1.Screen.clearScreen();
-    controller1.Screen.setCursor(1, 1);
-    controller1.Screen.print("The degree is %f", encoderLeft.position(degrees));
+    // controller1.Screen.clearScreen();
+    // controller1.Screen.setCursor(1, 1);
+    // controller1.Screen.print("The degree is %f", encoderLeft.position(degrees));
     
-    controller_print("string s", 5);
     
-    //test
-    if(BUTTON_X) blue1();
+    
+    #ifdef DEVELOPING_MOOD
+    test();
+    #endif
+
     wait(20, msec); 
   }
 }

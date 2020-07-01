@@ -7,7 +7,7 @@ void arm_manual_auto();
 void support_manual_basic();
 void support_manual_auto();
 
-
+////////////////////////////// CONTROLLER SETTING //////////////////////////////
 #define AXIS_1        controller1.Axis1.value()
 #define AXIS_2        controller1.Axis2.value()
 #define AXIS_3        controller1.Axis3.value()
