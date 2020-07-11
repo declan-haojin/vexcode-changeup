@@ -3,7 +3,7 @@
 ////////////////////////////// MOTION //////////////////////////////
 void m(motor motorName, int speed, int torq = 100);
 void m_group(motor_group motorGroup, int speed, int torq = 100);
-void m_stop_mood(bool isBrake);
+void m_brake_mood(motor motorName, bool isBrake);
 void chassis(int left, int right);
 
 ////////////////////////////// LOCK //////////////////////////////
