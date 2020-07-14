@@ -21,6 +21,12 @@ void autonomous(void) {
 }
 
 void usercontrol(void) {
+  #ifdef COAST_BRAKETYPE
+  chassis_brake_mood(false);
+  #else
+  chassis_brake_mood(true);
+  #endif
+
   while (1) {
     chassis_manual_basic();
     grab_manual_basic();
@@ -30,9 +36,7 @@ void usercontrol(void) {
     // controller1.Screen.clearScreen();
     // controller1.Screen.setCursor(1, 1);
     // controller1.Screen.print("The degree is %f", encoderLeft.position(degrees));
-    
-    
-    
+  
     #ifdef DEVELOPING_MOOD
     test();
     #endif

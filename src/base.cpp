@@ -24,6 +24,20 @@ void m_brake_mood(motor motorName, bool isBrake)
   else motorName.setBrake(coast);
 }
 
+void chassis_brake_mood(bool x)
+{
+  if(x) //BRAKE
+  {
+    chassisLeft.setStopping(brake);
+    chassisRight.setStopping(brake);
+  }
+  else 
+  {
+    chassisLeft.setStopping(coast);
+    chassisRight.setStopping(coast);
+  }
+}
+
 void grab_locked()
 {
   #ifdef PRIMITIVE_HOLD_MOOD

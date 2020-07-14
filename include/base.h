@@ -4,6 +4,7 @@
 void m(motor motorName, int speed, int torq = 100);
 void m_group(motor_group motorGroup, int speed, int torq = 100);
 void m_brake_mood(motor motorName, bool isBrake);
+void chassis_brake_mood(bool x);
 void chassis(int left, int right);
 
 ////////////////////////////// LOCK //////////////////////////////
@@ -44,4 +45,3 @@ void all_reset();
 
 ////////////////////////////// PRINT //////////////////////////////
 #define controller_print(str, x) controller1.Screen.clearScreen();controller1.Screen.setCursor(1, 1);controller1.Screen.print(str);controller1.Screen.print("%d", x);
-
