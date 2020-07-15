@@ -6,6 +6,4 @@
 ![](https://img.shields.io/github/downloads/declan-haojin/vexcode-changeup/total)
 ![](https://img.shields.io/github/issues/declan-haojin/vexcode-changeup)
 
----
-
 The code is written by [Haojin Li (Declan)](https://lihaojin.cn/) and is licensed under the MIT License.
