@@ -23,30 +23,30 @@ void grab_manual_basic()
   }
 }
 
-void arm_manual_basic()
-{
-  if(BUTTON_R1)
-  {
-    m(motorAR, ARM_V);
-  }
-  else if(BUTTON_R2)
-  {
-    m(motorAR, -ARM_V);
-  }
-  else
-  {
-    arm_locked();
-  }
-}
+// void arm_manual_basic()
+// {
+//   if(BUTTON_R1)
+//   {
+//     m(motorLL, LIFT_V);
+//   }
+//   else if(BUTTON_R2)
+//   {
+//     m(motorLL, -LIFT_V);
+//   }
+//   else
+//   {
+//     arm_locked();
+//   }
+// }
 
-void support_manual_basic()
-{
-  if(abs(AXIS_2) > SUPPORT_V)
-  {
-    m(motorSU, AXIS_2);
-  }
-  else 
-  {
-    support_locked();
-  }
-}
+// void support_manual_basic()
+// {
+//   if(abs(AXIS_2) > SUPPORT_V)
+//   {
+//     m(motorHL, AXIS_2);
+//   }
+//   else 
+//   {
+//     support_locked();
+//   }
+// }

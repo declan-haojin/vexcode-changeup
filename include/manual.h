@@ -2,10 +2,10 @@
 
 void chassis_manual_basic();
 void grab_manual_basic();
-void arm_manual_basic();
-void arm_manual_auto();
-void support_manual_basic();
-void support_manual_auto();
+// void arm_manual_basic();
+// void arm_manual_auto();
+// void support_manual_basic();
+// void support_manual_auto();
 
 ////////////////////////////// CONTROLLER SETTING //////////////////////////////
 #define AXIS_1        controller1.Axis1.value()

@@ -50,18 +50,18 @@ void grab_locked()
 void arm_locked()
 {
   #ifdef PRIMITIVE_HOLD_MOOD
-  m(motorAR, 1, 0);
+  m(motorLL, 1, 0);
   #else
-  motorAR.stop(hold);
+  motorLL.stop(hold);
   #endif
 }
 
 void support_locked()
 {
   #ifdef PRIMITIVE_HOLD_MOOD
-  m(motorSU, 1, 0);
+  m(motorHL, 1, 0);
   #else
-  motorSU.stop(hold);
+  motorHL.stop(hold);
   #endif
 }
 
@@ -78,12 +78,12 @@ void chassis_reset()
 
 void arm_reset()
 {
-  motorAR.resetRotation();
+  motorLL.resetRotation();
 }
 
 void support_reset()
 {
-  motorSU.resetRotation();
+  motorHL.resetRotation();
 }
 
 void inert_reset()

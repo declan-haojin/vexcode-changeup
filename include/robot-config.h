@@ -7,7 +7,7 @@ using namespace std;
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 #define DEVELOPING_MOOD
-
+ 
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*                               MOTOR PORT                                   */
@@ -19,8 +19,8 @@ using namespace std;
 #define MOTOR_RB_PORT PORT19
 #define MOTOR_LG_PORT PORT5
 #define MOTOR_RG_PORT PORT6
-#define MOTOR_AR_PORT PORT14
-#define MOTOR_SU_PORT PORT2
+#define MOTOR_LL_PORT PORT14
+#define MOTOR_HL_PORT PORT2
 
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
@@ -42,8 +42,8 @@ using namespace std;
 #define MOTOR_RB_TYPE ratio18_1
 #define MOTOR_LG_TYPE ratio18_1
 #define MOTOR_RG_TYPE ratio18_1
-#define MOTOR_AR_TYPE ratio36_1
-#define MOTOR_SU_TYPE ratio36_1
+#define MOTOR_LL_TYPE ratio36_1
+#define MOTOR_HL_TYPE ratio36_1
 
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
@@ -51,7 +51,7 @@ using namespace std;
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 #define SENS            1.0
-#define AXIS_THRESHOLD  20 
+#define AXIS_THRESHOLD  20
 
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
@@ -86,8 +86,8 @@ extern motor motorRF;
 extern motor motorRB;
 extern motor motorLG;
 extern motor motorRG;
-extern motor motorAR;
-extern motor motorSU;
+extern motor motorLL;
+extern motor motorHL;
 extern motor_group chassisLeft;
 extern motor_group chassisRight;
 extern motor_group grab;

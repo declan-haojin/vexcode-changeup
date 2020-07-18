@@ -30,8 +30,8 @@ void usercontrol(void) {
   while (1) {
     chassis_manual_basic();
     grab_manual_basic();
-    arm_manual_basic();
-    support_manual_basic();
+    // arm_manual_basic();
+    // support_manual_basic();
 
     // controller1.Screen.clearScreen();
     // controller1.Screen.setCursor(1, 1);
