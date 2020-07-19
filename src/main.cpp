@@ -30,6 +30,7 @@ void usercontrol(void) {
   while (1) {
     chassis_manual_basic();
     grab_manual_basic();
+    lift_manual_basic();
     // arm_manual_basic();
     // support_manual_basic();
 

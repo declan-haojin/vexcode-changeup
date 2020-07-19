@@ -58,9 +58,9 @@ using namespace std;
 /*                            MOTOR STANDARD SPEED                            */
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
-#define GRAB_V          100
-#define ARM_V           100
-#define SUPPORT_V       100
+#define GRAB_V            100
+#define LOW_LIFT_V        100
+#define HIGH_LIFT_V       100
 
 /*----------------------------------------------------------------------------*/
 /*                                                                            */

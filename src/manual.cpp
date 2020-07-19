@@ -23,6 +23,35 @@ void grab_manual_basic()
   }
 }
 
+void lift_manual_basic()
+{
+  if(BUTTON_R1)
+  {
+    m(motorLL, LOW_LIFT_V);
+  }
+  else if(BUTTON_R2)
+  {
+    m(motorLL, -LOW_LIFT_V);
+  }
+  else 
+  {
+    motorLL.stop(hold);
+  }
+
+  if(BUTTON_UP)
+  {
+    m(motorHL, HIGH_LIFT_V);
+  }
+  else if(BUTTON_DOWN)
+  {
+    m(motorHL, -HIGH_LIFT_V);
+  }
+  else 
+  {
+    motorHL.stop(hold);
+  }
+}
+
 // void arm_manual_basic()
 // {
 //   if(BUTTON_R1)

@@ -2,6 +2,7 @@
 
 void chassis_manual_basic();
 void grab_manual_basic();
+void lift_manual_basic();
 // void arm_manual_basic();
 // void arm_manual_auto();
 // void support_manual_basic();
