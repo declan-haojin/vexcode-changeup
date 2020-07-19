@@ -3,17 +3,17 @@
 
 void chassis_manual_basic()
 {
-  m_group(chassisLeft, (AXIS_3+AXIS_4) * SENS);
-  m_group(chassisRight, (AXIS_3-AXIS_4) * SENS);
+  m_group(chassisLeft, (CHASSIS_AXIS_X + CHASSIS_AXIS_Y) * SENS);
+  m_group(chassisRight, (CHASSIS_AXIS_X - CHASSIS_AXIS_Y) * SENS);
 }
 
 void grab_manual_basic()
 {
-  if(BUTTON_L1)
+  if(GRAB_KEY_IN)
   {
     m_group(grab, GRAB_V);
   }
-  else if(BUTTON_L2)
+  else if(GRAB_KEY_OUT)
   {
     m_group(grab, -GRAB_V);
   }
@@ -25,11 +25,11 @@ void grab_manual_basic()
 
 void lift_manual_basic()
 {
-  if(BUTTON_R1)
+  if(LOW_LIFT_KEY_IN)
   {
     m(motorLL, LOW_LIFT_V);
   }
-  else if(BUTTON_R2)
+  else if(LOW_LIFT_KEY_OUT)
   {
     m(motorLL, -LOW_LIFT_V);
   }
@@ -38,11 +38,11 @@ void lift_manual_basic()
     motorLL.stop(hold);
   }
 
-  if(BUTTON_UP)
+  if(HIGH_LIFT_KEY_IN)
   {
     m(motorHL, HIGH_LIFT_V);
   }
-  else if(BUTTON_DOWN)
+  else if(HIGH_LIFT_KEY_OUT)
   {
     m(motorHL, -HIGH_LIFT_V);
   }

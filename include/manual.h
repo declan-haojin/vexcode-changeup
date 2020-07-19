@@ -25,3 +25,17 @@ void lift_manual_basic();
 #define BUTTON_L2     controller1.ButtonL2.pressing()
 #define BUTTON_R1     controller1.ButtonR1.pressing()
 #define BUTTON_R2     controller1.ButtonR2.pressing()
+
+/*----------------------------------------------------------------------------*/
+/*                                                                            */
+/*                            CONTROLLER SETTING                              */
+/*                                                                            */
+/*----------------------------------------------------------------------------*/
+#define LOW_LIFT_KEY_IN     BUTTON_R1
+#define LOW_LIFT_KEY_OUT    BUTTON_R2
+#define HIGH_LIFT_KEY_IN    BUTTON_UP
+#define HIGH_LIFT_KEY_OUT   BUTTON_DOWN
+#define GRAB_KEY_IN         BUTTON_L1
+#define GRAB_KEY_OUT        BUTTON_L2
+#define CHASSIS_AXIS_X      AXIS_3
+#define CHASSIS_AXIS_Y      AXIS_4
