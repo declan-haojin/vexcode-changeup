@@ -6,6 +6,10 @@ void chassis_turn_inerial_control(int deg);
 double chassis_deg();
 void chassis_stop();
 
+void grab_in();
+void grab_out();
+void grab_stop();
+
 void PID_control();
 
 void blue1();
