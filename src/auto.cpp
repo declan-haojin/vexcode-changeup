@@ -39,21 +39,6 @@ void chassis_turn_inerial_control(int deg)
   chassis_stop();
 }
 
-void grab_in()
-{
-  m_group(grab, GRAB_V);
-}
-
-void grab_out()
-{
-  m_group(grab, -GRAB_V);
-}
-
-void grab_stop()
-{
-  grab.stop(hold);
-}
-
 bool enablePID = false;
 bool resetPID = false;
 double KP = 0.07;

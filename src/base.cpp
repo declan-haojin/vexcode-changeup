@@ -107,3 +107,18 @@ void all_reset()
   grab_reset();
   encoder_reset();
 }
+
+void grab_in()
+{
+  m_group(grab, GRAB_V);
+}
+
+void grab_out()
+{
+  m_group(grab, -GRAB_V);
+}
+
+void grab_stop()
+{
+  grab.stop(hold);
+}

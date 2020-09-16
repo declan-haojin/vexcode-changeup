@@ -31,11 +31,16 @@ void lift_manual_basic();
 /*                            CONTROLLER SETTING                              */
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
-#define LOW_LIFT_KEY_IN     BUTTON_R1
-#define LOW_LIFT_KEY_OUT    BUTTON_R2
-#define HIGH_LIFT_KEY_IN    BUTTON_UP
-#define HIGH_LIFT_KEY_OUT   BUTTON_DOWN
-#define GRAB_KEY_IN         BUTTON_L1
-#define GRAB_KEY_OUT        BUTTON_L2
+// #define LOW_LIFT_KEY_IN     BUTTON_R1
+// #define LOW_LIFT_KEY_OUT    BUTTON_R2
+// #define HIGH_LIFT_KEY_IN    BUTTON_UP
+// #define HIGH_LIFT_KEY_OUT   BUTTON_DOWN
+// #define GRAB_KEY_IN         BUTTON_L1
+// #define GRAB_KEY_OUT        BUTTON_L2
 #define CHASSIS_AXIS_X      AXIS_3
 #define CHASSIS_AXIS_Y      AXIS_4
+
+#define LOWER_KEY_IN        BUTTON_R1
+#define LOWER_KEY_OUT       BUTTON_R2
+#define UPPER_KEY_IN        BUTTON_B
+#define UPPER_KEY_OUT       BUTTON_A

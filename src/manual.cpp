@@ -7,50 +7,79 @@ void chassis_manual_basic()
   m_group(chassisRight, (CHASSIS_AXIS_X - CHASSIS_AXIS_Y) * SENS);
 }
 
-void grab_manual_basic()
-{
-  if(GRAB_KEY_IN)
-  {
-    m_group(grab, GRAB_V);
-  }
-  else if(GRAB_KEY_OUT)
-  {
-    m_group(grab, -GRAB_V);
-  }
-  else 
-  {
-    grab_locked();
-  }
-}
-
 void lift_manual_basic()
 {
-  if(LOW_LIFT_KEY_IN)
+  if(LOWER_KEY_IN)
   {
-    m(motorLL, LOW_LIFT_V);
+    m_group(grab, GRAB_V);
+    m(motorLL, LOWER_V);
   }
-  else if(LOW_LIFT_KEY_OUT)
+  else if(LOWER_KEY_OUT)
   {
-    m(motorLL, -LOW_LIFT_V);
+    m_group(grab, -GRAB_V);
+    m(motorLL, -LOWER_V);
   }
-  else 
+  else if(UPPER_KEY_IN)
   {
-    motorLL.stop(hold);
+    m(motorLL, UPPER_V);
+    m(motorHL, UPPER_V);
   }
-
-  if(HIGH_LIFT_KEY_IN)
+  else if(UPPER_KEY_OUT)
   {
-    m(motorHL, HIGH_LIFT_V);
+    m(motorLL, -UPPER_V);
+    m(motorHL, -UPPER_V);
   }
-  else if(HIGH_LIFT_KEY_OUT)
+  else
   {
-    m(motorHL, -HIGH_LIFT_V);
-  }
-  else 
-  {
-    motorHL.stop(hold);
+    grab_stop();
+    
   }
 }
+
+// void grab_manual_basic()
+// {
+//   if(GRAB_KEY_IN)
+//   {
+//     m_group(grab, GRAB_V);
+//   }
+//   else if(GRAB_KEY_OUT)
+//   {
+//     m_group(grab, -GRAB_V);
+//   }
+//   else 
+//   {
+//     grab_locked();
+//   }
+// }
+
+// void lift_manual_basic()
+// {
+//   if(LOW_LIFT_KEY_IN)
+//   {
+//     m(motorLL, LOW_LIFT_V);
+//   }
+//   else if(LOW_LIFT_KEY_OUT)
+//   {
+//     m(motorLL, -LOW_LIFT_V);
+//   }
+//   else 
+//   {
+//     motorLL.stop(hold);
+//   }
+
+//   if(HIGH_LIFT_KEY_IN)
+//   {
+//     m(motorHL, HIGH_LIFT_V);
+//   }
+//   else if(HIGH_LIFT_KEY_OUT)
+//   {
+//     m(motorHL, -HIGH_LIFT_V);
+//   }
+//   else 
+//   {
+//     motorHL.stop(hold);
+//   }
+// }
 
 // void arm_manual_basic()
 // {

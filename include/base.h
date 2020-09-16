@@ -45,3 +45,7 @@ void all_reset();
 
 ////////////////////////////// PRINT //////////////////////////////
 #define controller_print(str, x) controller1.Screen.clearScreen();controller1.Screen.setCursor(1, 1);controller1.Screen.print(str);controller1.Screen.print("%d", x);
+
+void grab_in();
+void grab_out();
+void grab_stop();
