@@ -30,7 +30,9 @@ void usercontrol(void) {
 
   while (1) {
     chassis_manual();
+    chassis_turn();
     lift_manual();
+
     // controller1.Screen.clearScreen();
     // controller1.Screen.setCursor(1, 1);
     // controller1.Screen.print("The degree is %f", encoderLeft.position(degrees));

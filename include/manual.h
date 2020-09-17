@@ -2,6 +2,7 @@
 
 void chassis_manual();
 void chassis_brake();
+void chassis_turn();
 void lift_manual();
 
 ////////////////////////////// CONTROLLER SETTING //////////////////////////////

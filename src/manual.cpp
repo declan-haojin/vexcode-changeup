@@ -1,15 +1,20 @@
 #include "manual.h"
 #include "base.h"
 
+double turnLimit = 1;
 void chassis_manual()
 {
-  m_group(chassisLeft, (CHASSIS_AXIS_X + CHASSIS_AXIS_Y) * SENS);
-  m_group(chassisRight, (CHASSIS_AXIS_X - CHASSIS_AXIS_Y) * SENS);
+  m_group(chassisLeft, (CHASSIS_AXIS_X + CHASSIS_AXIS_Y) * SENS * turnLimit);
+  m_group(chassisRight, (CHASSIS_AXIS_X - CHASSIS_AXIS_Y) * SENS * turnLimit);
 }
-
 void chassis_brake()
 {
   
+}
+void chassis_turn()
+{
+  if((LEFT_V * RIGHT_V) < -400) turnLimit = 0.7;
+  else turnLimit = 1;
 }
 
 void lift_manual()

@@ -30,13 +30,8 @@ void high_lift_locked();
 #define LB_V abs(motorLB.velocity(pct))
 #define RF_V abs(motorRF.velocity(pct))
 #define RB_V abs(motorRB.velocity(pct))
-
-#ifdef EXTERNAL_ENCODER_MOOD
-
-#define LEFT_DEG fabs(encoderLeft.position(degrees))
-#define RIGHT_DEG fabs(encoderRight.position(degrees))
-
-#endif
+#define LEFT_V ((motorLF.velocity(pct)+motorLB.velocity(pct)*0.5))
+#define RIGHT_V ((motorRF.velocity(pct)+motorRB.velocity(pct)*0.5))
 
 ////////////////////////////// SENSOR ROTATION //////////////////////////////
 #define INERT_DEG fabs(inert.rotation(degrees))
