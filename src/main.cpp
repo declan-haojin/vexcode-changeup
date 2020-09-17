@@ -8,12 +8,11 @@ competition Competition;
 
 void test()
 {
-  if(BUTTON_X) blue1();
   controller_print("The degree is ", (int)INERT_DEG);
 }
 
 void pre_auton(void) {
-  all_reset();
+  
 }
 
 void autonomous(void) {
@@ -27,13 +26,11 @@ void usercontrol(void) {
   chassis_brake_mood(true);
   #endif
 
-  while (1) {
-    chassis_manual_basic();
-    grab_manual_basic();
-    lift_manual_basic();
-    // arm_manual_basic();
-    // support_manual_basic();
+  m_brake_mood(motorHL, false);
 
+  while (1) {
+    chassis_manual();
+    lift_manual();
     // controller1.Screen.clearScreen();
     // controller1.Screen.setCursor(1, 1);
     // controller1.Screen.print("The degree is %f", encoderLeft.position(degrees));

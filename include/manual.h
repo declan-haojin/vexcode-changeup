@@ -1,12 +1,8 @@
 #include "vex.h"
 
-void chassis_manual_basic();
-void grab_manual_basic();
-void lift_manual_basic();
-// void arm_manual_basic();
-// void arm_manual_auto();
-// void support_manual_basic();
-// void support_manual_auto();
+void chassis_manual();
+void chassis_brake();
+void lift_manual();
 
 ////////////////////////////// CONTROLLER SETTING //////////////////////////////
 #define AXIS_1        controller1.Axis1.value()
@@ -25,6 +21,7 @@ void lift_manual_basic();
 #define BUTTON_L2     controller1.ButtonL2.pressing()
 #define BUTTON_R1     controller1.ButtonR1.pressing()
 #define BUTTON_R2     controller1.ButtonR2.pressing()
+
 
 /*----------------------------------------------------------------------------*/
 /*                                                                            */

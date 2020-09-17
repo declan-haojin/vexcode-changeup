@@ -27,10 +27,8 @@ using namespace std;
 #define AXIS_THRESHOLD                  20
 
 #define GRAB_V                          100
-// #define LOW_LIFT_V                   100
-// #define HIGH_LIFT_V                  100
-#define LOWER_V                         100
-#define UPPER_V                         100
+#define LOW_LIFT_V                      100
+#define HIGH_LIFT_V                     100
 
 #define DEVELOPING_MOOD
 #define PRIMITIVE_HOLD_MOOD

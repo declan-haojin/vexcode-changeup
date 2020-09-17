@@ -38,87 +38,41 @@ void chassis_brake_mood(bool x)
   }
 }
 
+void grab_in(int speed)
+{
+  m_group(grab, speed);
+}
+void grab_out(int speed)
+{
+  m_group(grab, -speed);
+}
 void grab_locked()
 {
-  #ifdef PRIMITIVE_HOLD_MOOD
-  m_group(grab, 1, 0);
-  #else
   grab.stop(hold);
-  #endif
 }
 
-void arm_locked()
+void low_lift_in(int speed)
 {
-  #ifdef PRIMITIVE_HOLD_MOOD
-  m(motorLL, 1, 0);
-  #else
+  m(motorLL, speed);
+}
+void low_lift_out(int speed)
+{
+  m(motorLL, -speed);
+}
+void low_lift_locked()
+{
   motorLL.stop(hold);
-  #endif
 }
 
-void support_locked()
+void high_lift_in(int speed)
 {
-  #ifdef PRIMITIVE_HOLD_MOOD
-  m(motorHL, 1, 0);
-  #else
+  m(motorHL, speed);
+}
+void high_lift_out(int speed)
+{
+  m(motorHL, -speed);
+}
+void high_lift_locked()
+{
   motorHL.stop(hold);
-  #endif
-}
-
-void grab_reset()
-{
-  grab.resetRotation();
-}
-
-void chassis_reset()
-{
-  chassisLeft.resetRotation();
-  chassisRight.resetRotation();
-}
-
-void arm_reset()
-{
-  motorLL.resetRotation();
-}
-
-void support_reset()
-{
-  motorHL.resetRotation();
-}
-
-void inert_reset()
-{
-  inert.calibrate();
-  while (inert.isCalibrating()) {
-    wait(10, msec);
-  }
-}
-
-void encoder_reset()
-{
-  encoderLeft.setPosition(0, degrees);
-  encoderRight.setPosition(0, degrees);
-}
-void all_reset()
-{
-  arm_reset();
-  support_reset();
-  chassis_reset();
-  grab_reset();
-  encoder_reset();
-}
-
-void grab_in()
-{
-  m_group(grab, GRAB_V);
-}
-
-void grab_out()
-{
-  m_group(grab, -GRAB_V);
-}
-
-void grab_stop()
-{
-  grab.stop(hold);
 }
