@@ -30,6 +30,7 @@ void high_lift_locked();
 #define LB_V abs(motorLB.velocity(pct))
 #define RF_V abs(motorRF.velocity(pct))
 #define RB_V abs(motorRB.velocity(pct))
+#define LL_V abs(motorLL.velocity(pct))
 #define LEFT_V ((motorLF.velocity(pct)+motorLB.velocity(pct)*0.5))
 #define RIGHT_V ((motorRF.velocity(pct)+motorRB.velocity(pct)*0.5))
 

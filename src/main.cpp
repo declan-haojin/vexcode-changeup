@@ -8,7 +8,7 @@ competition Competition;
 
 void test()
 {
-  controller_print("The degree is ", (int)INERT_DEG);
+  // controller_print("The degree is ", (int)INERT_DEG);
 }
 
 void pre_auton(void) {
@@ -20,11 +20,9 @@ void autonomous(void) {
 }
 
 void usercontrol(void) {
-  #ifdef COAST_BRAKETYPE
-  chassis_brake_mood(false);
-  #else
+  
   chassis_brake_mood(true);
-  #endif
+
 
   m_brake_mood(motorHL, false);
 
