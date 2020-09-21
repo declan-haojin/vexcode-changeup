@@ -1,8 +1,7 @@
 #include "vex.h"
 
 void chassis_manual();
-void chassis_brake();
-void chassis_turn();
+void chassis_status();
 void lift_manual();
 
 ////////////////////////////// CONTROLLER SETTING //////////////////////////////

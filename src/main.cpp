@@ -21,23 +21,23 @@ void autonomous(void) {
 
 void usercontrol(void) {
   
-  chassis_brake_mood(true);
+  chassis_brake_mood(false);
 
 
   m_brake_mood(motorHL, false);
 
   while (1) {
     chassis_manual();
-    chassis_turn();
+    // chassis_status();
     lift_manual();
 
     // controller1.Screen.clearScreen();
     // controller1.Screen.setCursor(1, 1);
     // controller1.Screen.print("The degree is %f", encoderLeft.position(degrees));
   
-    #ifdef DEVELOPING_MOOD
-    test();
-    #endif
+    // #ifdef DEVELOPING_MOOD
+    // test();
+    // #endif
 
     wait(20, msec); 
   }

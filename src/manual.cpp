@@ -8,29 +8,36 @@ void chassis_manual()
   m_group(chassisRight, (CHASSIS_AXIS_X - CHASSIS_AXIS_Y) * SENS * turnLimit);
 }
 
-double tim = Brain.Timer.time(sec);
-int lastV =  LEFT_V;
+//机器姿态判断
 
-void chassis_brake()
+void chassis_status()
 {
-  // double period = Brain.Timer.time(sec) - tim;
-  // if(period > 0.5)
-  // {
-  //   tim = Brain.Timer.time(sec);
-  //   double tempAc = (LEFT_V - lastV) / period;
-  //   lastV = LEFT_V;
-  //   if(tempAc > )   
-  // }
-  
-}
-void chassis_turn()
-{
-  // if((LEFT_V * RIGHT_V) < -400)
-  // {
-  //   turnLimit = 0.1;
-  //   // controller_print("Turn mood trigged", 1);
-  // }
-  // else turnLimit = 1;
+  int status = -1;
+  if((LEFT_V * RIGHT_V) < -400)
+  {
+    // turnLimit = 0.1;
+    status = 0;
+    // chassis_brake_mood(true);
+    controller_print("Turning", 1);
+  }
+  else if(LEFT_V > 20 && RIGHT_V > 20)
+  {
+    status = 1;
+    // m_brake_mood(motorLF, false);
+    // m_brake_mood(motorRF, false);
+    // m_brake_mood(motorLB, true);
+    // m_brake_mood(motorRB, true);
+    controller_print("Go ahead", 1)
+  }
+  else if(LEFT_V < -20 && RIGHT_V < -20)
+  {
+    status = 2;
+    // m_brake_mood(motorLB, false);
+    // m_brake_mood(motorRB, false);
+    // m_brake_mood(motorLF, true);
+    // m_brake_mood(motorRF, true);
+    controller_print("Go backward", 1)
+  }
 }
 
 void lift_manual()
