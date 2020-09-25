@@ -76,3 +76,22 @@ void high_lift_locked()
 {
   motorHL.stop(hold);
 }
+
+void chassis_reset()
+{
+  chassisLeft.resetRotation();
+  chassisRight.resetRotation();
+}
+void chassis_stop()
+{
+  chassisLeft.stop(brake);
+  chassisRight.stop(brake);
+}
+
+void inert_reset()
+{
+  inert.calibrate();
+  while (inert.isCalibrating()) {
+    wait(100, msec);
+  }
+}

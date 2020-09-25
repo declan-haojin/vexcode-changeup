@@ -2,7 +2,7 @@
 
 // void chassis_run_basic();
 // void chassis_run_PID_control();
-// void chassis_turn_inerial_control(int deg);
+void chassis_turn(int deg);
 // double chassis_deg();
 // void chassis_stop();
 

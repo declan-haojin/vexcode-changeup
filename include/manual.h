@@ -3,6 +3,7 @@
 void chassis_manual();
 void chassis_status();
 void lift_manual();
+void lift_detect();
 
 ////////////////////////////// CONTROLLER SETTING //////////////////////////////
 #define AXIS_1        controller1.Axis1.value()
@@ -39,5 +40,5 @@ void lift_manual();
 
 #define LOWER_KEY_IN        BUTTON_R1
 #define LOWER_KEY_OUT       BUTTON_R2
-#define UPPER_KEY_IN        BUTTON_A
-#define UPPER_KEY_OUT       BUTTON_B
+#define UPPER_KEY_IN        BUTTON_B
+#define UPPER_KEY_OUT       BUTTON_A

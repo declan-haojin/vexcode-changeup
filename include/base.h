@@ -4,8 +4,12 @@
 void m(motor motorName, int speed, int torq = 100);
 void m_group(motor_group motorGroup, int speed, int torq = 100);
 void m_brake_mood(motor motorName, bool isBrake);
-void chassis_brake_mood(bool x);
+
 void chassis(int left, int right);
+void chassis_brake_mood(bool x);
+void chassis_reset();
+void chassis_stop();
+
 
 void grab_in(int speed);
 void grab_out(int speed);
@@ -18,6 +22,10 @@ void low_lift_locked();
 void high_lift_in(int speed);
 void high_lift_out(int speed);
 void high_lift_locked();
+
+
+void inert_reset();
+
 
 
 ////////////////////////////// MOTOR ROTATION //////////////////////////////

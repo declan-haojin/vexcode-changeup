@@ -8,7 +8,9 @@ competition Competition;
 
 void test()
 {
-  // controller_print("The degree is ", (int)INERT_DEG);
+  controller_print("The degree is ", (int)INERT_DEG);
+  chassis_turn(95);
+  controller_print("The degree is ", (int)INERT_DEG);
 }
 
 void pre_auton(void) {
@@ -28,15 +30,16 @@ void usercontrol(void) {
 
   while (1) {
     chassis_manual();
+    lift_detect();
     // chassis_status();
-    lift_manual();
+    // lift_manual();
 
     // controller1.Screen.clearScreen();
     // controller1.Screen.setCursor(1, 1);
     // controller1.Screen.print("The degree is %f", encoderLeft.position(degrees));
   
     // #ifdef DEVELOPING_MOOD
-    // test();
+    if(BUTTON_X) test();
     // #endif
 
     wait(20, msec); 

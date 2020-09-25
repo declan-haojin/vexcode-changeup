@@ -10,8 +10,9 @@ using namespace std;
 #define MOTOR_LL_PORT                   PORT11
 #define MOTOR_HL_PORT                   PORT16
 
-#define INERTIAL_PORT                   PORT7
-#define ENCODER_LEFT_PORT               A
+#define INERTIAL_PORT                   PORT21
+#define SWITCH_PORT                     A
+#define ENCODER_LEFT_PORT               B
 #define ENCODER_RIGHT_PORT              C
 
 #define MOTOR_LF_TYPE                   ratio18_1
@@ -49,5 +50,6 @@ extern motor_group chassisLeft;
 extern motor_group chassisRight;
 extern motor_group grab;
 extern inertial inert;
+extern digital_in swc;
 extern encoder encoderLeft;
 extern encoder encoderRight;
