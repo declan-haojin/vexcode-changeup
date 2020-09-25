@@ -64,11 +64,11 @@ void low_lift_locked()
   motorLL.stop(hold);
 }
 
-void high_lift_down(int speed)
+void high_lift_up(int speed)
 {
   m(motorHL, speed);
 }
-void high_lift_up(int speed)
+void high_lift_down(int speed)
 {
   m(motorHL, -speed);
 }
@@ -91,7 +91,5 @@ void chassis_stop()
 void inert_reset()
 {
   inert.calibrate();
-  while (inert.isCalibrating()) {
-    wait(100, msec);
-  }
+  while (inert.isCalibrating()){}
 }

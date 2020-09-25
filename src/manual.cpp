@@ -55,6 +55,38 @@ void lift_manual()
     grab_locked();
   } 
 
+  if(LOWER_KEY_UP)
+  {
+    if(SWITCH)
+    {
+      low_lift_locked();
+    }
+    else if(!UPPER_KEY_DOWN && !UPPER_KEY_UP)
+    {
+      low_lift_locked();
+    }
+    else
+    {
+    
+    }
+  }
+  else if(LOWER_KEY_DOWN)
+  {
+    low_lift_down();
+  }
+  else if(UPPER_KEY_UP)
+  {
+
+  }
+  else if(UPPER_KEY_DOWN)
+  {
+
+  }
+  else
+  {
+
+  }
+
   if(swc.value() == 0)
   {
     low_lift_locked();
@@ -97,9 +129,7 @@ void lift_manual()
   {
     high_lift_locked();
   } 
-
-
-  controller_print("value:", swc.value());
+  // controller_print("value:", swc.value());
 }
 
 void lift_detect()
@@ -151,6 +181,4 @@ void lift_detect()
   {
     high_lift_locked();
   }
-
-
 }

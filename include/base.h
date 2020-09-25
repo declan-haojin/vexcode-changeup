@@ -10,7 +10,6 @@ void chassis_brake_mood(bool x);
 void chassis_reset();
 void chassis_stop();
 
-
 void grab_in(int speed);
 void grab_out(int speed);
 void grab_locked();
@@ -19,14 +18,11 @@ void low_lift_up(int speed);
 void low_lift_down(int speed);
 void low_lift_locked();
 
-void high_lift_down(int speed);
 void high_lift_up(int speed);
+void high_lift_down(int speed);
 void high_lift_locked();
 
-
 void inert_reset();
-
-
 
 ////////////////////////////// MOTOR ROTATION //////////////////////////////
 #define LF_DEG fabs(motorLF.rotation(deg))
@@ -44,7 +40,7 @@ void inert_reset();
 
 ////////////////////////////// SENSOR ROTATION //////////////////////////////
 #define INERT_DEG fabs(inert.rotation(degrees))
-
+#define SWITCH swc.value() == false 
 ////////////////////////////// MOTOR SPEED //////////////////////////////
 
 
