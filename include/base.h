@@ -15,12 +15,12 @@ void grab_in(int speed);
 void grab_out(int speed);
 void grab_locked();
 
-void low_lift_in(int speed);
-void low_lift_out(int speed);
+void low_lift_up(int speed);
+void low_lift_down(int speed);
 void low_lift_locked();
 
-void high_lift_in(int speed);
-void high_lift_out(int speed);
+void high_lift_down(int speed);
+void high_lift_up(int speed);
 void high_lift_locked();
 
 

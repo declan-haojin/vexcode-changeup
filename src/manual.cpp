@@ -42,11 +42,11 @@ void chassis_status()
 
 void lift_manual()
 {
-  if(LOWER_KEY_IN)
+  if(LOWER_KEY_UP)
   {
     grab_in(GRAB_V);
   }
-  else if(LOWER_KEY_OUT) 
+  else if(LOWER_KEY_DOWN) 
   {
     grab_out(GRAB_V);
   }
@@ -58,40 +58,40 @@ void lift_manual()
   if(swc.value() == 0)
   {
     low_lift_locked();
-    if(UPPER_KEY_OUT)
+    if(UPPER_KEY_UP)
     {
-      low_lift_in(100);
-      high_lift_out(100);
+      low_lift_up(100);
+      high_lift_up(100);
     }
   }
-  else if(LOWER_KEY_IN)
+  else if(LOWER_KEY_UP)
   {
-    low_lift_in(LOW_LIFT_V);
+    low_lift_up(LOW_LIFT_V);
   }
-  else if(LOWER_KEY_OUT)
+  else if(LOWER_KEY_DOWN)
   {
-    low_lift_out(LOW_LIFT_V);
+    low_lift_down(LOW_LIFT_V);
   }
-  else if(UPPER_KEY_IN)
+  else if(UPPER_KEY_DOWN)
   {
-    low_lift_in(LOW_LIFT_V);
+    low_lift_up(LOW_LIFT_V);
   }
-  else if(UPPER_KEY_OUT) 
+  else if(UPPER_KEY_UP) 
   {
-    low_lift_out(LOW_LIFT_V);
+    low_lift_down(LOW_LIFT_V);
   }
   else
   {
     low_lift_locked();
   } 
 
-  if(UPPER_KEY_IN)
+  if(UPPER_KEY_DOWN)
   {
-    high_lift_in(HIGH_LIFT_V);
+    high_lift_down(HIGH_LIFT_V);
   }
-  else if(UPPER_KEY_OUT) 
+  else if(UPPER_KEY_UP) 
   {
-    high_lift_out(HIGH_LIFT_V);
+    high_lift_up(HIGH_LIFT_V);
   }
   else
   {
@@ -114,13 +114,13 @@ void lift_detect()
     else
     {
       grab_in(GRAB_V);
-      low_lift_in(LOW_LIFT_V);
+      low_lift_up(LOW_LIFT_V);
     }
   }
   else if(BUTTON_R2)
   {
     grab_out(GRAB_V);
-    low_lift_out(LOW_LIFT_V);
+    low_lift_down(LOW_LIFT_V);
   }
   else if((!BUTTON_A) && (!BUTTON_B))
   {
@@ -134,13 +134,13 @@ void lift_detect()
 
   if(BUTTON_B)
   {
-    low_lift_out(LOW_LIFT_V);
-    high_lift_out(HIGH_LIFT_V);
+    low_lift_down(LOW_LIFT_V);
+    high_lift_up(HIGH_LIFT_V);
   }
   else if(BUTTON_A)
   {
-    low_lift_in(LOW_LIFT_V);
-    high_lift_in(HIGH_LIFT_V);
+    low_lift_up(LOW_LIFT_V);
+    high_lift_down(HIGH_LIFT_V);
   }
   else if((!BUTTON_R1) && (!BUTTON_R2))
   {

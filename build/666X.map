@@ -2604,19 +2604,19 @@ Linker script and memory map
                 0x03800bf0                grab_locked()
  .text._Z11low_lift_ini
                 0x03800c08       0xb0 build/src/base.o
-                0x03800c08                low_lift_in(int)
+                0x03800c08                low_lift_up(int)
  .text._Z12low_lift_outi
                 0x03800cb8       0xb8 build/src/base.o
-                0x03800cb8                low_lift_out(int)
+                0x03800cb8                low_lift_down(int)
  .text._Z15low_lift_lockedv
                 0x03800d70       0x18 build/src/base.o
                 0x03800d70                low_lift_locked()
  .text._Z12high_lift_ini
                 0x03800d88       0xb0 build/src/base.o
-                0x03800d88                high_lift_in(int)
+                0x03800d88                high_lift_down(int)
  .text._Z13high_lift_outi
                 0x03800e38       0xb8 build/src/base.o
-                0x03800e38                high_lift_out(int)
+                0x03800e38                high_lift_up(int)
  .text._Z16high_lift_lockedv
                 0x03800ef0       0x18 build/src/base.o
                 0x03800ef0                high_lift_locked()

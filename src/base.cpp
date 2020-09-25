@@ -51,11 +51,11 @@ void grab_locked()
   grab.stop(hold);
 }
 
-void low_lift_in(int speed)
+void low_lift_up(int speed)
 {
   m(motorLL, speed);
 }
-void low_lift_out(int speed)
+void low_lift_down(int speed)
 {
   m(motorLL, -speed);
 }
@@ -64,11 +64,11 @@ void low_lift_locked()
   motorLL.stop(hold);
 }
 
-void high_lift_in(int speed)
+void high_lift_down(int speed)
 {
   m(motorHL, speed);
 }
-void high_lift_out(int speed)
+void high_lift_up(int speed)
 {
   m(motorHL, -speed);
 }
