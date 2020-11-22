@@ -12,8 +12,8 @@ motor motorRF = motor(MOTOR_RF_PORT, ratio6_1, false);
 motor motorRB = motor(MOTOR_RB_PORT, ratio6_1, false);
 motor motorLG = motor(MOTOR_LG_PORT, ratio18_1, false);
 motor motorRG = motor(MOTOR_RG_PORT, ratio18_1, true);
-motor motorLL = motor(MOTOR_LL_PORT, ratio36_1, true);
-motor motorHL = motor(MOTOR_HL_PORT, ratio36_1, false);
+motor motorLL = motor(MOTOR_LL_PORT, ratio6_1, false);
+motor motorHL = motor(MOTOR_HL_PORT, ratio6_1, true);
 
 motor_group chassisLeft = motor_group(motorLF, motorLB);
 motor_group chassisRight = motor_group(motorRF, motorRB);

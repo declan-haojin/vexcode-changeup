@@ -5,10 +5,10 @@ using namespace std;
 #define MOTOR_LB_PORT                   PORT11
 #define MOTOR_RF_PORT                   PORT14
 #define MOTOR_RB_PORT                   PORT12
-#define MOTOR_LG_PORT                   PORT1
-#define MOTOR_RG_PORT                   PORT2
-#define MOTOR_LL_PORT                   PORT3
-#define MOTOR_HL_PORT                   PORT4
+#define MOTOR_LG_PORT                   PORT15
+#define MOTOR_RG_PORT                   PORT18
+#define MOTOR_LL_PORT                   PORT19
+#define MOTOR_HL_PORT                   PORT17
 
 #define INERTIAL_PORT                   PORT21
 #define SWITCH_PORT                     A

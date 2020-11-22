@@ -24,6 +24,59 @@ void chassis_manual()
   m(motorRB, (-AXIS_2 - AXIS_1 + AXIS_4) * SENS);
 }
 
+void lift_manual()
+{
+  if(LOWER_KEY_UP)
+  {
+    grab_in(100);
+  }
+  else if(LOWER_KEY_DOWN)
+  {
+    grab_out(100);
+  }
+  else
+  {
+    grab_locked();
+  }
+
+  if(LOWER_KEY_UP)
+  {
+    low_lift_up(100);
+  }
+  else if(LOWER_KEY_DOWN) 
+  {
+    low_lift_down(100);
+  }
+  else if (UPPER_KEY_UP) 
+  {
+    low_lift_up(100);
+  }
+  else if (UPPER_KEY_DOWN) 
+  {
+    low_lift_down(100);
+  }
+  else
+  {
+    low_lift_locked();
+  }
+
+  if(UPPER_KEY_UP)
+  {
+    high_lift_up(100);
+  }
+  else if(UPPER_KEY_DOWN)
+  {
+    high_lift_down(100);
+  }
+  else if(BUTTON_Y)
+  {
+    high_lift_down(100);
+  }
+  else
+  {
+    high_lift_locked();
+  }
+}
 
 
 // void lift_manual()
