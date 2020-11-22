@@ -17,11 +17,12 @@
 double turnLimit = 1;
 void chassis_manual()
 {
+  double rotationValue = AXIS_4 * 0.3;
   // basic movement / shift
-  m(motorLF, (AXIS_2 + AXIS_1 + AXIS_4) * SENS);
-  m(motorLB, (AXIS_2 - AXIS_1 + AXIS_4) * SENS);
-  m(motorRF, (-AXIS_2 + AXIS_1 + AXIS_4) * SENS);
-  m(motorRB, (-AXIS_2 - AXIS_1 + AXIS_4) * SENS);
+  m(motorLF, (AXIS_2 + AXIS_1) * SENS + rotationValue);
+  m(motorLB, (AXIS_2 - AXIS_1) * SENS + rotationValue);
+  m(motorRF, (-AXIS_2 + AXIS_1) * SENS + rotationValue);
+  m(motorRB, (-AXIS_2 - AXIS_1) * SENS + rotationValue);
 }
 
 void lift_manual()
