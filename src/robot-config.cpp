@@ -6,10 +6,10 @@ brain Brain;
 
 controller controller1 = controller(primary);
 
-motor motorLF = motor(MOTOR_LF_PORT, ratio18_1, true);
-motor motorLB = motor(MOTOR_LB_PORT, ratio18_1, false);
-motor motorRF = motor(MOTOR_RF_PORT, ratio18_1, false);
-motor motorRB = motor(MOTOR_RB_PORT, ratio18_1, true);
+motor motorLF = motor(MOTOR_LF_PORT, ratio6_1, false);
+motor motorLB = motor(MOTOR_LB_PORT, ratio6_1, false);
+motor motorRF = motor(MOTOR_RF_PORT, ratio6_1, false);
+motor motorRB = motor(MOTOR_RB_PORT, ratio6_1, false);
 motor motorLG = motor(MOTOR_LG_PORT, ratio18_1, false);
 motor motorRG = motor(MOTOR_RG_PORT, ratio18_1, true);
 motor motorLL = motor(MOTOR_LL_PORT, ratio36_1, true);

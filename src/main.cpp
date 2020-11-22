@@ -30,7 +30,7 @@ void usercontrol(void) {
 
   while (1) {
     chassis_manual();
-    lift_detect();
+    // lift_detect();
     // chassis_status();
     // lift_manual();
 
@@ -39,7 +39,7 @@ void usercontrol(void) {
     // controller1.Screen.print("The degree is %f", encoderLeft.position(degrees));
   
     // #ifdef DEVELOPING_MOOD
-    if(BUTTON_X) test();
+    // if(BUTTON_X) test();
     // #endif
 
     wait(20, msec); 
