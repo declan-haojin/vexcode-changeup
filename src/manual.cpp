@@ -88,3 +88,32 @@ void lift_manual()
     high_lift_locked();
   }
 }
+
+void vision_test()
+{
+  if(isBlueFound())
+  {
+    Brain.Screen.setFont(mono40);
+    Brain.Screen.clearLine(3, black);
+    Brain.Screen.setCursor(Brain.Screen.row(), 1);
+    Brain.Screen.setCursor(3, 1);
+    Brain.Screen.print("Blue Ball Found");
+  }
+  else if(isRedFound())
+  {
+    Brain.Screen.setFont(mono40);
+    Brain.Screen.clearLine(5, black);
+    Brain.Screen.setCursor(Brain.Screen.row(), 1);
+    Brain.Screen.setCursor(5, 1);
+    Brain.Screen.print("Red Ball Found");
+  }
+  else
+  {
+    Brain.Screen.clearScreen();
+  }
+}
+
+void vision_detection()
+{
+  
+}

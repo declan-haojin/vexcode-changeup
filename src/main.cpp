@@ -31,6 +31,7 @@ void usercontrol(void) {
   while (1) {
     chassis_manual();
     lift_manual();
+    vision_test();
     // lift_detect();
     // chassis_status();
     // lift_manual();

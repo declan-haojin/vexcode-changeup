@@ -4,6 +4,7 @@ void chassis_manual();
 void chassis_status();
 void lift_manual();
 void lift_detect();
+void vision_test();
 
 ////////////////////////////// CONTROLLER SETTING //////////////////////////////
 #define AXIS_1        controller1.Axis1.value()

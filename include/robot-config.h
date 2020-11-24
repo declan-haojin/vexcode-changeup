@@ -1,6 +1,5 @@
 using namespace vex;
 using namespace std;
- 
 #define MOTOR_LF_PORT                   PORT13
 #define MOTOR_LB_PORT                   PORT11
 #define MOTOR_RF_PORT                   PORT14
