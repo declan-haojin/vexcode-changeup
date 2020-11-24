@@ -24,7 +24,7 @@ using namespace std;
 #define MOTOR_LL_TYPE                   ratio36_1
 #define MOTOR_HL_TYPE                   ratio36_1
 
-#define SENS                            0.5
+#define SENS                            1.0
 #define AXIS_THRESHOLD                  20
 
 #define GRAB_V                          100

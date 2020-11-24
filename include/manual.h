@@ -34,5 +34,5 @@ void lift_detect();
 
 #define LOWER_KEY_UP        BUTTON_R1
 #define LOWER_KEY_DOWN      BUTTON_R2
-#define UPPER_KEY_DOWN      BUTTON_B
-#define UPPER_KEY_UP        BUTTON_A
+#define UPPER_KEY_DOWN      (BUTTON_L2 || BUTTON_B)
+#define UPPER_KEY_UP        (BUTTON_L1 || BUTTON_A)

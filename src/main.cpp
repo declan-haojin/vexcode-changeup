@@ -23,7 +23,7 @@ void autonomous(void) {
 
 void usercontrol(void) {
   
-  chassis_brake_mood(false);
+  chassis_brake_mood(true);
 
 
   m_brake_mood(motorHL, false);
