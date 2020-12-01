@@ -6,8 +6,14 @@
 
 void chassis_run(double dist, double pw, double turnDeg)
 {
-  double gyro_kp = 1.5;
-  double gyro_kd = 1;
+  // double gyro_kp = 1.5;
+  // double gyro_kd = 1;
+
+  // double move_kp = 0.49;
+  // double move_kd = 3.5;
+
+  double gyro_kp = 1.7;
+  double gyro_kd = 1.02;
 
   double move_kp = 0.49;
   double move_kd = 3.5;
