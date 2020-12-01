@@ -1,25 +1,25 @@
 #include "vex.h"
 
 ////////////////////////////// MOTION //////////////////////////////
-void m(motor motorName, int speed, int torq = 100);
-void m_group(motor_group motorGroup, int speed, int torq = 100);
+void m(motor motorName, double speed, double torq = 100);
+void m_group(motor_group motorGroup, double speed, double torq = 100);
 void m_brake_mood(motor motorName, bool isBrake);
 
-void chassis(int left, int right);
+void chassis(double left, double right);
 void chassis_brake_mood(bool x);
 void chassis_reset();
 void chassis_stop();
 
-void grab_in(int speed);
-void grab_out(int speed);
+void grab_in(double speed);
+void grab_out(double speed);
 void grab_locked();
 
-void low_lift_up(int speed);
-void low_lift_down(int speed);
+void low_lift_up(double speed);
+void low_lift_down(double speed);
 void low_lift_locked();
 
-void high_lift_up(int speed);
-void high_lift_down(int speed);
+void high_lift_up(double speed);
+void high_lift_down(double speed);
 void high_lift_locked();
 
 void inert_reset();
@@ -46,3 +46,6 @@ void inert_reset();
 
 ////////////////////////////// PRINT //////////////////////////////
 #define controller_print(str, x) controller1.Screen.clearScreen();controller1.Screen.setCursor(1, 1);controller1.Screen.print(str);controller1.Screen.print("%d", x);
+
+bool isBlueFound();
+bool isRedFound();

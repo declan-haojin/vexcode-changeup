@@ -112,8 +112,3 @@ void vision_test()
     Brain.Screen.clearScreen();
   }
 }
-
-void vision_detection()
-{
-  
-}

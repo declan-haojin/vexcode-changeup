@@ -1,18 +1,18 @@
 #include "base.h"
 
-void m(motor motorName, int speed, int torq)
+void m(motor motorName, double speed, double torq)
 {
   motorName.setMaxTorque(torq, pct);
   motorName.spin(fwd, speed, pct);
 }
 
-void m_group(motor_group motorGroup, int speed, int torq)
+void m_group(motor_group motorGroup, double speed, double torq)
 {
   motorGroup.setMaxTorque(torq, pct);
   motorGroup.spin(fwd, speed, pct);
 }
 
-void chassis(int left, int right)
+void chassis(double left, double right)
 {
   m_group(chassisLeft, left);
   m_group(chassisRight, right);
@@ -38,11 +38,11 @@ void chassis_brake_mood(bool x)
   }
 }
 
-void grab_in(int speed)
+void grab_in(double speed)
 {
   m_group(grab, speed);
 }
-void grab_out(int speed)
+void grab_out(double speed)
 {
   m_group(grab, -speed);
 }
@@ -51,11 +51,11 @@ void grab_locked()
   grab.stop(hold);
 }
 
-void low_lift_up(int speed)
+void low_lift_up(double speed)
 {
   m(motorLL, speed);
 }
-void low_lift_down(int speed)
+void low_lift_down(double speed)
 {
   m(motorLL, -speed);
 }
@@ -64,11 +64,11 @@ void low_lift_locked()
   motorLL.stop(hold);
 }
 
-void high_lift_up(int speed)
+void high_lift_up(double speed)
 {
   m(motorHL, speed);
 }
-void high_lift_down(int speed)
+void high_lift_down(double speed)
 {
   m(motorHL, -speed);
 }
