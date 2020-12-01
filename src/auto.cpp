@@ -88,9 +88,9 @@ void chassis_run(double dist, double pw, double turnDeg)
 
 void chassis_turn(double target)
 {
-  double kp = 3.17;
-  double ki = 0;//30;
-  double kd = 15;//20;
+  double kp = 1.7;
+  double ki = 0.01;//30;
+  double kd = 2;//20;
 
   int timeUsed = 0;
 
