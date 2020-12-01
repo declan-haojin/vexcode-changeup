@@ -19,7 +19,9 @@ void pre_auton(void) {
 
 void autonomous(void) {
   inert_reset();
-  chassis_run(3000, 70, 0);
+  // chassis_run(5000, 70, 0);
+  // wait(0.5, sec);
+  chassis_turn(90);
 }
 
 void usercontrol(void) {
