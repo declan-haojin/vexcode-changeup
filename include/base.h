@@ -25,10 +25,10 @@ void high_lift_locked();
 void inert_reset();
 
 ////////////////////////////// MOTOR ROTATION //////////////////////////////
-#define LF_DEG fabs(motorLF.rotation(deg))
-#define LB_DEG fabs(motorLB.rotation(deg))
-#define RF_DEG fabs(motorRF.rotation(deg))
-#define RB_DEG fabs(motorRB.rotation(deg))
+#define LF_DEG motorLF.rotation(deg)
+#define LB_DEG motorLB.rotation(deg)
+#define RF_DEG motorRF.rotation(deg)
+#define RB_DEG motorRB.rotation(deg)
 
 #define LF_V abs(motorLF.velocity(pct))
 #define LB_V abs(motorLB.velocity(pct))

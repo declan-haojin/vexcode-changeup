@@ -9,7 +9,7 @@ using namespace std;
 #define MOTOR_LL_PORT                   PORT19
 #define MOTOR_HL_PORT                   PORT17
 
-#define INERTIAL_PORT                   PORT21
+#define INERTIAL_PORT                   PORT16
 #define SWITCH_PORT                     A
 #define ENCODER_LEFT_PORT               B
 #define ENCODER_RIGHT_PORT              C

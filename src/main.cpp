@@ -6,19 +6,19 @@ using namespace vex;
 
 competition Competition;
 
-void test()
-{
-  controller_print("The degree is ", (int)INERT_DEG);
-  chassis_turn(95);
-  controller_print("The degree is ", (int)INERT_DEG);
-}
+// void test()
+// {
+//   controller_print("The degree is ", (int)INERT_DEG);
+//   chassis_turn(95);
+//   controller_print("The degree is ", (int)INERT_DEG);
+// }
 
 void pre_auton(void) {
   
 }
 
 void autonomous(void) {
-  
+  inert_reset();
 }
 
 void usercontrol(void) {

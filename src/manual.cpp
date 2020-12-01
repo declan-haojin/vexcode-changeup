@@ -21,8 +21,8 @@ void chassis_manual()
   // basic movement / shift
   m(motorLF, (AXIS_2 + AXIS_1) * SENS + rotationValue);
   m(motorLB, (AXIS_2 - AXIS_1) * SENS + rotationValue);
-  m(motorRF, (-AXIS_2 + AXIS_1) * SENS + rotationValue);
-  m(motorRB, (-AXIS_2 - AXIS_1) * SENS + rotationValue);
+  m(motorRF, (AXIS_2 - AXIS_1) * SENS - rotationValue);
+  m(motorRB, (AXIS_2 + AXIS_1) * SENS - rotationValue);
 }
 
 // int status = 0; // 0stop  1in   2out  3 shoot
