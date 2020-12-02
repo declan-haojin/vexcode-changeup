@@ -17,7 +17,18 @@ void autonomous(void) {
   chassis_reset();
   inert_reset();
 
-  // chassis_shift(-3000, 77.7, 0);
+  // #ifdef DEV
+  // while(true)
+  // {
+  //   Brain.Screen.setFont(mono40);
+  //   Brain.Screen.clearLine(3, black);
+  //   Brain.Screen.setCursor(Brain.Screen.row(), 1);
+  //   Brain.Screen.setCursor(3, 1);
+  //   Brain.Screen.print("%d", lit.reflectivity());
+  // }
+
+  // #endif
+  // chassis_shift(2000, 37.7, 0);
   // chassis_run(5000, 70, 0);
   // wait(0.5, sec);
   // chassis_turn(90);

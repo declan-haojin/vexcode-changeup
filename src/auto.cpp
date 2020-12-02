@@ -223,17 +223,23 @@ void chassis_turn(double target)
   chassis(0, 0);
 }
 
+bool isBallDetected()
+{
+  if(lit.reflectivity() > 17) return true;
+  return false;
+}
+
 int CountingCallback()
 {
   bool flag = false;
   while(true)
   {
-    if(swc.value() == 0 && flag == false)
+    if(isBallDetected() == 0 && flag == false)
     {
       ballCount++;
       flag = true;
     }
-    else if(swc.value() == 1 && flag == true)
+    else if(isBallDetected() == 1 && flag == true)
     {
       flag = false;
     }
@@ -255,9 +261,9 @@ int FirstBallDetectedCallback()
     // Brain.Screen.setCursor(Brain.Screen.row(), 1);
     // Brain.Screen.setCursor(3, 1);
     // Brain.Screen.print("First Ball Detected");
-    controller1.Screen.clearScreen();
-    controller1.Screen.setCursor(controller1.Screen.row(), 1);
-    controller1.Screen.print("%d", ballCount);
+    // controller1.Screen.clearScreen();
+    // controller1.Screen.setCursor(controller1.Screen.row(), 1);
+    // controller1.Screen.print("%d", ballCount);
     #endif
   }
   return 0;
@@ -297,10 +303,10 @@ void blue_far_basic()
 
 int BallOutCallback()
 {
-  wt(0.27);
-  low_lift_down(100);
-  grab_out(100);
-  high_lift_down(100);
+  wt(0.17);
+  low_lift_down(80);
+  grab_out(80);
+  high_lift_down(80);
   wt(1.77);
   stopshooting;
   return 0;
@@ -368,7 +374,7 @@ void blue_close_shift()
 
   while(ballCount < 3)
   {
-    high_lift_up(100);
+    high_lift_up(80);
   }
 
   stopshooting;
@@ -386,12 +392,15 @@ void blue_close_shift()
   chassis_shift(-4377, 87.7, 317.7-360);
   wt(0.27);
 
-  chassis_run(1277, 77.7, 317.7-360);
+  chassis_run(1377, 77.7, 309.7-360);
   wt(0.27);
 
-  chassis_shift(1000, 87.7, 317.7-360);
+  stopshooting;
+  grab_out(100);
 
+  chassis_shift(2000, 37.7, 317.7-360);
 
 
   stopshooting;
+
 }

@@ -16,6 +16,7 @@ using namespace std;
 
 #define INERTIAL_PORT                   PORT16
 #define SWITCH_PORT                     B
+#define LIGHT_PORT                      A
 
 #define MOTOR_LF_TYPE                   ratio6_1
 #define MOTOR_LB_TYPE                   ratio6_1
@@ -41,3 +42,4 @@ extern motor_group chassisRight;
 extern motor_group grab;
 extern inertial inert;
 extern digital_in swc;
+extern line lit;

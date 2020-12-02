@@ -19,6 +19,6 @@ motor_group chassisLeft   = motor_group(motorLF, motorLB);
 motor_group chassisRight  = motor_group(motorRF, motorRB);
 motor_group grab          = motor_group(motorLG, motorRG);
 
-inertial inert = inertial(INERTIAL_PORT);
-
-digital_in swc = digital_in(Brain.ThreeWirePort.SWITCH_PORT);
+inertial inert    = inertial(INERTIAL_PORT);
+digital_in swc    = digital_in(Brain.ThreeWirePort.SWITCH_PORT);
+line lit = line(Brain.ThreeWirePort.LIGHT_PORT);
