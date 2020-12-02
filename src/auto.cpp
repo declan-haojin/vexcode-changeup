@@ -101,7 +101,7 @@ void chassis_turn(double target)
   double distTorl = 0.1;
   double errorTorl = 1;
   double lim = 100;
-  double error = target - currentTurn;
+  double error = target - currentTurn; // 337-1.78
   double lastError;
   double diffError = 0;
   double i = 0;
@@ -167,6 +167,7 @@ int FirstBallDetectedCallback()
   {
     wait(0.1, sec);
     low_lift_locked();
+    grab_locked();
     #ifdef DEV
     Brain.Screen.setFont(mono40);
     Brain.Screen.clearLine(3, black);
@@ -194,10 +195,26 @@ void blue1()
   grab_in(100);
   wait(0.27, sec);
   
-  chassis_run(3277, 57.7, 4.7);
+  chassis_run(3377, 57.7, 4.7);
 
   FirstBallDetected.stop();
   wait(0.27, sec);
-  chassis_turn(337.7);
+  
+  chassis_turn(335.7-360); //1.78~337
+  wait(0.27, sec);
 
+  chassis_run(897, 57.7, 0);
+  wait(0.27, sec);
+
+  grab_in(100);
+  low_lift_up(100);
+  high_lift_up(100);
+  while(true)
+  {
+    if(ballCount == 2) break;
+  }
+
+  grab_locked();
+  low_lift_locked();
+  high_lift_locked();
 }

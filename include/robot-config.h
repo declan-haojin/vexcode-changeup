@@ -1,5 +1,10 @@
 using namespace vex;
 using namespace std;
+
+#define DEV
+#define SENS                            1.0
+#define AXIS_THRESHOLD                  20
+
 #define MOTOR_LF_PORT                   PORT13
 #define MOTOR_LB_PORT                   PORT11
 #define MOTOR_RF_PORT                   PORT14
@@ -20,18 +25,6 @@ using namespace std;
 #define MOTOR_RG_TYPE                   ratio18_1
 #define MOTOR_LL_TYPE                   ratio36_1
 #define MOTOR_HL_TYPE                   ratio36_1
-
-#define SENS                            1.0
-#define AXIS_THRESHOLD                  20
-
-#define GRAB_V                          100
-#define LOW_LIFT_V                      100
-#define HIGH_LIFT_V                     100
-
-#define DEV
-#define PRIMITIVE_HOLD_MOOD
-#define COAST_BRAKETYPE
-#define EXTERNAL_ENCODER_MOOD
 
 extern brain Brain;
 extern controller controller1;
