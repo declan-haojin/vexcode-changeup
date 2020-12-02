@@ -20,7 +20,8 @@ void autonomous(void) {
   // chassis_run(5000, 70, 0);
   // wait(0.5, sec);
   // chassis_turn(90);
-  blue1();
+  // blue1();
+  blue2();
 }
 
 void usercontrol(void) {
