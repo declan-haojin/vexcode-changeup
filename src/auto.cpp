@@ -225,8 +225,8 @@ void chassis_turn(double target)
 
 bool isBallDetected()
 {
-  if(lit.reflectivity() > 17) return true;
-  return false;
+  return swc.value() == 0 ? true : false;
+  // return lit.reflectivity() > 17 ? true : false;
 }
 
 int CountingCallback()
@@ -243,7 +243,7 @@ int CountingCallback()
     {
       flag = false;
     }
-    wait(20, msec);
+    wait(27, msec);
   }
   return 0;
 }
@@ -253,7 +253,7 @@ int FirstBallDetectedCallback()
   if(ballCount == 1)
   {
     wait(0.1, sec);
-    low_lift_locked();
+    // low_lift_locked();
     grab_locked();
     #ifdef DEV
     // Brain.Screen.setFont(mono40);
@@ -355,7 +355,7 @@ void blue_close_basic()
 void blue_close_shift()
 {
   task Counting = task(CountingCallback);
-  task FirstBallDetected = task(FirstBallDetectedCallback);
+  // task FirstBallDetected = task(FirstBallDetectedCallback);
 
   grab_out(100);
   low_lift_up(70);
@@ -374,7 +374,9 @@ void blue_close_shift()
 
   while(ballCount < 3)
   {
-    high_lift_up(80);
+    high_lift_up(100);
+    low_lift_up(70);
+    grab_in(70);
   }
 
   stopshooting;
@@ -403,4 +405,15 @@ void blue_close_shift()
 
   stopshooting;
 
+}
+
+void test()
+{
+  task Counting = task(CountingCallback);
+  while(true)
+  {
+    controller1.Screen.clearScreen();
+    controller1.Screen.setCursor(controller1.Screen.row(), 1);
+    controller1.Screen.print("%d", ballCount);
+  }
 }

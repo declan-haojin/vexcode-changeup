@@ -21,3 +21,5 @@ void blue_far_basic();
 void red_close_basic();
 void red_close_side();
 void red_close_shift();
+
+void test();
