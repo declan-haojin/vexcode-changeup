@@ -10,9 +10,7 @@ using namespace std;
 #define MOTOR_HL_PORT                   PORT17
 
 #define INERTIAL_PORT                   PORT16
-#define SWITCH_PORT                     A
-#define ENCODER_LEFT_PORT               B
-#define ENCODER_RIGHT_PORT              C
+#define SWITCH_PORT                     B
 
 #define MOTOR_LF_TYPE                   ratio6_1
 #define MOTOR_LB_TYPE                   ratio6_1
@@ -30,7 +28,7 @@ using namespace std;
 #define LOW_LIFT_V                      100
 #define HIGH_LIFT_V                     100
 
-#define DEVELOPING_MOOD
+#define DEV
 #define PRIMITIVE_HOLD_MOOD
 #define COAST_BRAKETYPE
 #define EXTERNAL_ENCODER_MOOD
@@ -50,5 +48,3 @@ extern motor_group chassisRight;
 extern motor_group grab;
 extern inertial inert;
 extern digital_in swc;
-extern encoder encoderLeft;
-extern encoder encoderRight;

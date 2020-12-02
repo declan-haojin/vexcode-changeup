@@ -89,7 +89,7 @@ void lift_manual()
   }
 }
 
-void vision_test()
+void vision_manual()
 {
   if(isBlueFound())
   {

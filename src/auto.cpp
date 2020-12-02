@@ -4,6 +4,8 @@
 
 #define currentTurn inert.rotation(deg)
 
+int ballCount = 0;
+
 int sign(double x)
 {
   if(x > 0) return 1;
@@ -138,4 +140,64 @@ void chassis_turn(double target)
   }
 
   chassis(0, 0);
+}
+
+int CountingCallback()
+{
+  bool flag = false;
+  while(true)
+  {
+    if(swc.value() == 0 && flag == false)
+    {
+      ballCount++;
+      flag = true;
+    }
+    else if(swc.value() == 1 && flag == true)
+    {
+      flag = false;
+    }
+    wait(20, msec);
+  }
+  return 0;
+}
+
+int FirstBallDetectedCallback()
+{
+  if(ballCount == 1)
+  {
+    wait(0.1, sec);
+    low_lift_locked();
+    #ifdef DEV
+    Brain.Screen.setFont(mono40);
+    Brain.Screen.clearLine(3, black);
+    Brain.Screen.setCursor(Brain.Screen.row(), 1);
+    Brain.Screen.setCursor(3, 1);
+    Brain.Screen.print("First Ball Detected");
+    #endif
+  }
+  return 0;
+}
+
+void grab_in()
+{
+
+}
+
+void blue1()
+{
+  task Counting = task(CountingCallback);
+  task FirstBallDetected = task(FirstBallDetectedCallback);
+
+  grab_out(100);
+  low_lift_up(70);
+  wait(0.5, sec);
+  grab_in(100);
+  wait(0.27, sec);
+  
+  chassis_run(3277, 57.7, 4.7);
+
+  FirstBallDetected.stop();
+  wait(0.27, sec);
+  chassis_turn(337.7);
+
 }

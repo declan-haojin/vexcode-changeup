@@ -24,7 +24,7 @@ void m_brake_mood(motor motorName, bool isBrake)
   else motorName.setBrake(coast);
 }
 
-void chassis_brake_mood(bool x)
+void is_chassis_brake_mood(bool x)
 {
   if(x) //BRAKE
   {

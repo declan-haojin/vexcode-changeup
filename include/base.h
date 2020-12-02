@@ -6,7 +6,7 @@ void m_group(motor_group motorGroup, double speed, double torq = 100);
 void m_brake_mood(motor motorName, bool isBrake);
 
 void chassis(double left, double right);
-void chassis_brake_mood(bool x);
+void is_chassis_brake_mood(bool x);
 void chassis_reset();
 void chassis_stop();
 

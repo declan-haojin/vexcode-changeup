@@ -22,6 +22,3 @@ motor_group grab = motor_group(motorLG, motorRG);
 inertial inert = inertial(INERTIAL_PORT);
 
 digital_in swc = digital_in(Brain.ThreeWirePort.SWITCH_PORT);
-
-// encoder encoderLeft = encoder(Brain.ThreeWirePort.ENCODER_LEFT_PORT);
-// encoder encoderRight = encoder(Brain.ThreeWirePort.ENCODER_RIGHT_PORT);
