@@ -23,8 +23,8 @@ using namespace std;
 #define MOTOR_RB_TYPE                   ratio6_1
 #define MOTOR_LG_TYPE                   ratio18_1
 #define MOTOR_RG_TYPE                   ratio18_1
-#define MOTOR_LL_TYPE                   ratio36_1
-#define MOTOR_HL_TYPE                   ratio36_1
+#define MOTOR_LL_TYPE                   ratio6_1
+#define MOTOR_HL_TYPE                   ratio6_1
 
 extern brain Brain;
 extern controller controller1;

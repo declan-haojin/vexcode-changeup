@@ -22,12 +22,12 @@ void autonomous(void) {
   // wait(0.5, sec);
   // chassis_turn(90);
   // blue1();
-  blue2();
+  blue_close_shift();
 }
 
 void usercontrol(void) {
   is_chassis_brake_mood(true);
-  m_brake_mood(motorHL, false);
+  is_m_brake_mood(motorHL, false);
 
   while (1) {
     chassis_manual();

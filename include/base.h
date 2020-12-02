@@ -3,12 +3,11 @@
 ////////////////////////////// MOTION //////////////////////////////
 void m(motor motorName, double speed, double torq = 100);
 void m_group(motor_group motorGroup, double speed, double torq = 100);
-void m_brake_mood(motor motorName, bool isBrake);
+void is_m_brake_mood(motor motorName, bool isBrake);
 
 void chassis(double left, double right);
 void is_chassis_brake_mood(bool x);
 void chassis_reset();
-void chassis_stop();
 
 void grab_in(double speed);
 void grab_out(double speed);

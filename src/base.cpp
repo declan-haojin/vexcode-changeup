@@ -5,11 +5,15 @@ void m(motor motorName, double speed, double torq)
   motorName.setMaxTorque(torq, pct);
   motorName.spin(fwd, speed, pct);
 }
-
 void m_group(motor_group motorGroup, double speed, double torq)
 {
   motorGroup.setMaxTorque(torq, pct);
   motorGroup.spin(fwd, speed, pct);
+}
+void is_m_brake_mood(motor motorName, bool isBrake)
+{
+  if(isBrake) motorName.setBrake(brake);
+  else motorName.setBrake(coast);
 }
 
 void chassis(double left, double right)
@@ -17,13 +21,6 @@ void chassis(double left, double right)
   m_group(chassisLeft, left);
   m_group(chassisRight, right);
 }
-
-void m_brake_mood(motor motorName, bool isBrake)
-{
-  if(isBrake) motorName.setBrake(brake);
-  else motorName.setBrake(coast);
-}
-
 void is_chassis_brake_mood(bool x)
 {
   if(x) //BRAKE
@@ -36,6 +33,11 @@ void is_chassis_brake_mood(bool x)
     chassisLeft.setStopping(coast);
     chassisRight.setStopping(coast);
   }
+}
+void chassis_reset()
+{
+  chassisLeft.resetRotation();
+  chassisRight.resetRotation();
 }
 
 void grab_in(double speed)
@@ -75,17 +77,6 @@ void high_lift_down(double speed)
 void high_lift_locked()
 {
   motorHL.stop(hold);
-}
-
-void chassis_reset()
-{
-  chassisLeft.resetRotation();
-  chassisRight.resetRotation();
-}
-void chassis_stop()
-{
-  chassisLeft.stop(brake);
-  chassisRight.stop(brake);
 }
 
 void inert_reset()

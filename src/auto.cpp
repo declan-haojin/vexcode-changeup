@@ -2,10 +2,6 @@
 #include "auto.h"
 #include <algorithm>
 
-#define currentTurn   inert.rotation(deg)
-#define wt(x)         wait(x, sec)
-#define stopshooting  grab_locked();low_lift_locked();high_lift_locked()
-
 int ballCount = 0;
 
 int sign(double x)
@@ -267,7 +263,7 @@ int FirstBallDetectedCallback()
   return 0;
 }
 
-void blue1()
+void blue_far_basic()
 {
   task Counting = task(CountingCallback);
   task FirstBallDetected = task(FirstBallDetectedCallback);
@@ -310,7 +306,7 @@ int BallOutCallback()
   return 0;
 }
 
-void blue2()
+void blue_close_basic()
 {
   task Counting = task(CountingCallback);
   task FirstBallDetected = task(FirstBallDetectedCallback);
@@ -347,7 +343,45 @@ void blue2()
   chassis_turn(317.1-360);
   wt(0.27);
 
-  //////////////////////////////////////////////
+  stopshooting;
+}
+
+void blue_close_shift()
+{
+  task Counting = task(CountingCallback);
+  task FirstBallDetected = task(FirstBallDetectedCallback);
+
+  grab_out(100);
+  low_lift_up(70);
+  wt(0.5);
+  grab_in(70);
+  wt(0.27);
+
+  chassis_run(3077, 77.7, 0);
+  wt(0.27);
+
+  chassis_turn(93.7);
+  wt(0.27);
+
+  chassis_run(3377, 77.7, 93.7);
+  wt(0.27);
+
+  while(ballCount < 3)
+  {
+    high_lift_up(100);
+  }
+
+  stopshooting;
+  
+  task BallOut = task(BallOutCallback);
+  wt(0.1);
+
+  chassis_run(-2977, 77.7, 93.7);
+  BallOut.stop();
+  wt(0.27);
+
+  chassis_turn(317.1-360);
+  wt(0.27);
 
   chassis_shift(-4377, 87.7, 317.7-360);
   wt(0.27);

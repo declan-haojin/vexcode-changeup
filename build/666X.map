@@ -81,9 +81,13 @@ Discarded input sections
                 0x00000000       0x1c build/src/auto.o
  .ARM.exidx.text._Z4signd
                 0x00000000        0x8 build/src/auto.o
- .text._Z5blue1v
+ .text._Z14blue_far_basicv
                 0x00000000      0x1c8 build/src/auto.o
- .ARM.exidx.text._Z5blue1v
+ .ARM.exidx.text._Z14blue_far_basicv
+                0x00000000        0x8 build/src/auto.o
+ .text._Z16blue_close_basicv
+                0x00000000      0x260 build/src/auto.o
+ .ARM.exidx.text._Z16blue_close_basicv
                 0x00000000        0x8 build/src/auto.o
  .llvm_addrsig  0x00000000        0xa build/src/auto.o
  .text          0x00000000        0x0 build/src/manual.o
@@ -2630,9 +2634,9 @@ Linker script and memory map
  .text._Z15BallOutCallbackv
                 0x03800bd0       0x90 build/src/auto.o
                 0x03800bd0                BallOutCallback()
- .text._Z5blue2v
+ .text._Z16blue_close_shiftv
                 0x03800c60      0x328 build/src/auto.o
-                0x03800c60                blue2()
+                0x03800c60                blue_close_shift()
  .text._Z14chassis_manualv
                 0x03800f88      0x220 build/src/manual.o
                 0x03800f88                chassis_manual()
@@ -2647,9 +2651,9 @@ Linker script and memory map
  .text._Z7chassisdd
                 0x03801700       0xe8 build/src/base.o
                 0x03801700                chassis(double, double)
- .text._Z12m_brake_moodN3vex5motorEb
+ .text._Z15is_m_brake_moodN3vex5motorEb
                 0x038017e8       0x1c build/src/base.o
-                0x038017e8                m_brake_mood(vex::motor, bool)
+                0x038017e8                is_m_brake_mood(vex::motor, bool)
  .text._Z21is_chassis_brake_moodb
                 0x03801804       0x4c build/src/base.o
                 0x03801804                is_chassis_brake_mood(bool)
@@ -3713,7 +3717,7 @@ Linker script and memory map
  .ARM.exidx.text._Z15BallOutCallbackv
                 0x03805864        0x0 build/src/auto.o
                                   0x8 (size before relaxing)
- .ARM.exidx.text._Z5blue2v
+ .ARM.exidx.text._Z16blue_close_shiftv
                 0x03805864        0x0 build/src/auto.o
                                   0x8 (size before relaxing)
  .ARM.exidx.text._Z14chassis_manualv
@@ -3731,7 +3735,7 @@ Linker script and memory map
  .ARM.exidx.text._Z7chassisdd
                 0x03805864        0x0 build/src/base.o
                                   0x8 (size before relaxing)
- .ARM.exidx.text._Z12m_brake_moodN3vex5motorEb
+ .ARM.exidx.text._Z15is_m_brake_moodN3vex5motorEb
                 0x03805864        0x0 build/src/base.o
                                   0x8 (size before relaxing)
  .ARM.exidx.text._Z21is_chassis_brake_moodb
