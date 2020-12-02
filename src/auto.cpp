@@ -243,7 +243,11 @@ int CountingCallback()
     {
       flag = false;
     }
-    wait(27, msec);
+    controller1.Screen.clearScreen();
+    controller1.Screen.setCursor(controller1.Screen.row(), 1);
+    controller1.Screen.print("%d", ballCount);
+
+    wait(20, msec);
   }
   return 0;
 }
@@ -369,14 +373,14 @@ void blue_close_shift()
   chassis_turn(93.7);
   wt(0.27);
 
-  chassis_run(3377, 77.7, 93.7);
+  chassis_run(3577, 77.7, 93.7);
   wt(0.27);
 
   while(ballCount < 3)
   {
     high_lift_up(100);
     low_lift_up(70);
-    grab_in(70);
+    grab_in(60);
   }
 
   stopshooting;
@@ -404,7 +408,6 @@ void blue_close_shift()
 
 
   stopshooting;
-
 }
 
 void test()
@@ -412,8 +415,16 @@ void test()
   task Counting = task(CountingCallback);
   while(true)
   {
-    controller1.Screen.clearScreen();
-    controller1.Screen.setCursor(controller1.Screen.row(), 1);
-    controller1.Screen.print("%d", ballCount);
+    if(controller1.ButtonA.pressing())
+    {
+      low_lift_up(100);
+      high_lift_up(100);
+      grab_in(100);
+    }
+    else
+    {
+      stopshooting;
+    }
+    wait(20, msec);
   }
 }

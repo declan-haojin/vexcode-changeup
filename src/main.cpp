@@ -13,9 +13,10 @@ void pre_auton(void) {
 }
 
 void autonomous(void) {
-  is_chassis_brake_mood(true);
-  chassis_reset();
-  inert_reset();
+  // is_chassis_brake_mood(true);
+  // chassis_reset();
+  // inert_reset();
+  // test();
   // chassis_shift(2000, 37.7, 0);
   // chassis_run(5000, 70, 0);
   // wait(0.5, sec);
@@ -27,12 +28,12 @@ void autonomous(void) {
 void usercontrol(void) {
   is_chassis_brake_mood(true);
   is_m_brake_mood(motorHL, false);
-
-  while (1) {
-    chassis_manual();
-    lift_manual();
-    wait(20, msec); 
-  }
+  test();
+  // while (1) {
+  //   chassis_manual();
+  //   lift_manual();
+  //   wait(20, msec); 
+  // }
 }
 
 int main() {
