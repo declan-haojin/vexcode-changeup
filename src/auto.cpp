@@ -15,6 +15,14 @@ int sign(double x)
   return 0;
 }
 
+void shift(double front, double back)
+{
+  m(motorLF, front);
+  m(motorLB, -back);
+  m(motorRF, -front);
+  m(motorRB, back);
+}
+
 void chassis_run(double dist, double pw, double turnDeg)
 {
   // double gyro_kp = 1.5;
@@ -88,6 +96,81 @@ void chassis_run(double dist, double pw, double turnDeg)
     wait(1, msec);
   }
   chassis(0, 0);
+}
+
+void chassis_shift(double dist, double pw, double turnDeg)
+{
+  // double gyro_kp = 1.5;
+  // double gyro_kd = 1;
+
+  // double move_kp = 0.49;
+  // double move_kd = 3.5;
+
+  double gyro_kp = 1.7;
+  double gyro_kd = 1.02;
+
+  double move_kp = 0.49;
+  double move_kd = 3.5;
+
+  double currentDist = 0;
+  double diffTurn;
+  double diffDist;
+  double turnPower;
+  double movePower;
+  double gyroLastError;
+  double moveLastError;
+  
+  double moveError = fabs(dist) - fabs(currentDist);
+  double gyroError = turnDeg - currentTurn;
+
+  chassis_reset();
+  
+  gyroLastError = gyroError;
+  moveLastError = moveError;
+
+  while(true)
+  {
+    currentDist = (fabs(LF_DEG) + fabs(LB_DEG) + fabs(RF_DEG) + fabs(RB_DEG)) * 0.25;
+    
+    moveError = fabs(dist) - fabs(currentDist);
+    gyroError = turnDeg - currentTurn;
+
+    diffDist = moveError - moveLastError;
+    diffTurn = gyroError - gyroLastError;
+
+    moveLastError = moveError;
+    gyroLastError = gyroError;
+
+    movePower = move_kp*moveError + move_kd*diffDist;
+    turnPower = gyro_kp*gyroError + gyro_kd*diffTurn;
+
+    if(moveError < 3 && fabs(diffDist) < 0.1) break;
+
+    if(dist > 0)
+    {
+      if(currentDist > 0.1*fabs(dist)) //查的距离还比较远
+      {
+        shift(pw + turnPower, pw-turnPower);
+      }
+      else
+      {
+        shift(pw*0.7 + turnPower, pw*0.7-turnPower);
+      }
+    }
+    else
+    {
+      if(currentDist > 0.1*fabs(dist)) //查的距离还比较远
+      {
+        shift(-pw + turnPower, -pw-turnPower);
+      }
+      else
+      {
+        shift(-pw*0.7 + turnPower, -pw*0.7-turnPower);
+      }
+    }
+    wait(1, msec);
+  }
+  shift(0, 0);
 }
 
 void chassis_turn(double target)
@@ -218,7 +301,7 @@ void blue1()
 
 int BallOutCallback()
 {
-  wt(1.07);
+  wt(0.27);
   low_lift_down(100);
   grab_out(100);
   high_lift_down(100);
@@ -235,7 +318,7 @@ void blue2()
   grab_out(100);
   low_lift_up(70);
   wt(0.5);
-  grab_in(100);
+  grab_in(70);
   wt(0.27);
 
   chassis_run(3077, 77.7, 0);
@@ -247,19 +330,32 @@ void blue2()
   chassis_run(3377, 77.7, 93.7);
   wt(0.27);
 
-  while(ballCount < 4)
+  while(ballCount < 3)
   {
     high_lift_up(100);
   }
+
   stopshooting;
   
   task BallOut = task(BallOutCallback);
+  wt(0.1);
 
   chassis_run(-2977, 77.7, 93.7);
   BallOut.stop();
   wt(0.27);
 
-  chassis_turn(316.7-360);
+  chassis_turn(317.1-360);
+  wt(0.27);
+
+  //////////////////////////////////////////////
+
+  chassis_shift(-4377, 87.7, 317.7-360);
+  wt(0.27);
+
+  chassis_run(1277, 77.7, 317.7-360);
+  wt(0.27);
+
+  chassis_shift(1000, 87.7, 317.7-360);
 
 
 

@@ -17,6 +17,7 @@ void autonomous(void) {
   chassis_reset();
   inert_reset();
 
+  // chassis_shift(-3000, 77.7, 0);
   // chassis_run(5000, 70, 0);
   // wait(0.5, sec);
   // chassis_turn(90);
