@@ -3,6 +3,7 @@
 #include <algorithm>
 
 int ballCount = 0;
+double t0 = 0;
 
 int sign(double x)
 {
@@ -274,6 +275,7 @@ int BallOutCallback()
 int DisplayCallback()
 {
   controller1.Screen.clearScreen();
+
   controller1.Screen.setCursor(controller1.Screen.row(), 1);
   controller1.Screen.setCursor(1, 1);
   controller1.Screen.print("ballCount: %d", ballCount);
@@ -286,7 +288,9 @@ int DisplayCallback()
 
 void blue_far_basic()
 {
+  #ifdef DEV
   task Display = task(DisplayCallback);
+  #endif
 
   grab_out(100);
   low_lift_up(70);
@@ -305,7 +309,8 @@ void blue_far_basic()
   chassis_run(3577, 77.7, 271.7-360);
   wt(0.27);
 
-  while(ballCount < 3)
+  t0 = Brain.timer(sec);
+  while(ballCount < 3 && Brain.timer(sec)-t0 < 7)
   {
     high_lift_up(70);
     low_lift_up(80);
@@ -313,7 +318,6 @@ void blue_far_basic()
   }
 
   stopshooting;
-
 
   task BallOut = task(BallOutCallback);
   wt(0.1);
@@ -331,7 +335,7 @@ void blue_far_basic()
 
   chassis_run(1917, 57.7, 48.7);
 
-  double t0 = Brain.timer(sec);
+  t0 = Brain.timer(sec);
   while(ballCount < 4 && Brain.timer(sec)-t0 < 1){}
 
   wt(0.47);
@@ -360,7 +364,8 @@ void blue_close_basic()
   chassis_run(3377, 77.7, 93.7);
   wt(0.27);
 
-  while(ballCount < 3)
+  t0 = Brain.timer(sec);
+  while(ballCount < 3 && Brain.timer(sec)-t0 < 7)
   {
     high_lift_up(100);
   }
@@ -401,7 +406,8 @@ void blue_close_shift()
   chassis_run(3577, 77.7, 93.7);
   wt(0.27);
 
-  while(ballCount < 3)
+  t0 = Brain.timer(sec);
+  while(ballCount < 3 && Brain.timer(sec)-t0 < 7)
   {
     high_lift_up(100);
     low_lift_up(70);
@@ -435,7 +441,7 @@ void blue_close_shift()
   stopshooting;
 }
 
-void test()
+void switch_accessibility_test()
 {
   task Counting = task(CountingCallback);
   
