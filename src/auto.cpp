@@ -262,7 +262,7 @@ int CountingCallback()
 
 int BallOutCallback()
 {
-  wt(0.17);
+  wt(1.17);
   low_lift_down(80);
   grab_out(80);
   high_lift_down(80);

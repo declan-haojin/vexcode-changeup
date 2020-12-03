@@ -13,9 +13,6 @@ void pre_auton(void) {
 }
 
 void autonomous(void) {
-  is_chassis_brake_mood(true);
-  chassis_reset();
-  inert_reset();
   // test();
   // chassis_shift(2000, 37.7, 0);
   // chassis_run(5000, 70, 0);
