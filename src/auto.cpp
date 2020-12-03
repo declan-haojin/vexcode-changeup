@@ -231,15 +231,27 @@ bool isBallDetected()
 
 int CountingCallback()
 {
+  ballCount = 0;
+  bool isFirstBallDetected = false;
   bool flag = false;
+  double lastTime = 0;
+
   while(true)
   {
-    if(isBallDetected() == 0 && flag == false)
+    if(isBallDetected() == true && flag == false)
     {
+      double currentTime = Brain.timer(sec);
+      if(ballCount == 0)
+      {
+        isFirstBallDetected = true;
+        lastTime = currentTime;
+      } 
+      else if(currentTime - lastTime < 0.37) continue;
+      lastTime = currentTime;
       ballCount++;
       flag = true;
     }
-    else if(isBallDetected() == 1 && flag == true)
+    else if(isBallDetected() == false && flag == true)
     {
       flag = false;
     }
@@ -247,62 +259,9 @@ int CountingCallback()
     controller1.Screen.setCursor(controller1.Screen.row(), 1);
     controller1.Screen.print("%d", ballCount);
 
-    wait(20, msec);
+    wait(30, msec);
   }
   return 0;
-}
-
-int FirstBallDetectedCallback()
-{
-  if(ballCount == 1)
-  {
-    wait(0.1, sec);
-    // low_lift_locked();
-    grab_locked();
-    #ifdef DEV
-    // Brain.Screen.setFont(mono40);
-    // Brain.Screen.clearLine(3, black);
-    // Brain.Screen.setCursor(Brain.Screen.row(), 1);
-    // Brain.Screen.setCursor(3, 1);
-    // Brain.Screen.print("First Ball Detected");
-    // controller1.Screen.clearScreen();
-    // controller1.Screen.setCursor(controller1.Screen.row(), 1);
-    // controller1.Screen.print("%d", ballCount);
-    #endif
-  }
-  return 0;
-}
-
-void blue_far_basic()
-{
-  task Counting = task(CountingCallback);
-  task FirstBallDetected = task(FirstBallDetectedCallback);
-
-  grab_out(100);
-  low_lift_up(70);
-  wt(0.5);
-  grab_in(100);
-  wt(0.27);
-  
-  chassis_run(3377, 57.7, 4.7);
-  FirstBallDetected.stop();
-  wt(0.27);
-  
-  chassis_turn(335.7-360); //1.78~337
-  wt(0.27);
-
-  chassis_run(897, 57.7, 0);
-  wt(0.27);
-
-  grab_in(100);
-  low_lift_up(100);
-  high_lift_up(100);
-
-  wt(0.27);
-
-  while(true){if(ballCount == 2) break;}
-
-  stopshooting;
 }
 
 int BallOutCallback()
@@ -316,10 +275,46 @@ int BallOutCallback()
   return 0;
 }
 
+void blue_far_basic()
+{
+  grab_out(100);
+  low_lift_up(70);
+  wt(0.5);
+  grab_in(70);
+  wt(0.27);
+
+  chassis_run(3077, 77.7, 0);
+  wt(0.27);
+
+  chassis_turn(270.7-360);
+  wt(0.27);
+
+  task Counting = task(CountingCallback);
+
+  chassis_run(3577, 77.7, 271.7-360);
+  wt(0.27);
+
+  while(ballCount < 3)
+  {
+    high_lift_up(100);
+    low_lift_up(70);
+    grab_in(60);
+  }
+
+  stopshooting;
+
+  Counting.stop();
+
+  task BallOut = task(BallOutCallback);
+  wt(0.1);
+
+  chassis_run(-2977, 77.7, 271.7-360);
+  stopshooting;
+}
+
 void blue_close_basic()
 {
   task Counting = task(CountingCallback);
-  task FirstBallDetected = task(FirstBallDetectedCallback);
 
   grab_out(100);
   low_lift_up(70);
@@ -358,7 +353,6 @@ void blue_close_basic()
 
 void blue_close_shift()
 {
-  task Counting = task(CountingCallback);
   // task FirstBallDetected = task(FirstBallDetectedCallback);
 
   grab_out(100);
@@ -372,6 +366,8 @@ void blue_close_shift()
 
   chassis_turn(93.7);
   wt(0.27);
+
+  task Counting = task(CountingCallback);
 
   chassis_run(3577, 77.7, 93.7);
   wt(0.27);
