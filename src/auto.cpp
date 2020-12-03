@@ -255,10 +255,6 @@ int CountingCallback()
     {
       flag = false;
     }
-    controller1.Screen.clearScreen();
-    controller1.Screen.setCursor(controller1.Screen.row(), 1);
-    controller1.Screen.print("%d", ballCount);
-
     wait(30, msec);
   }
   return 0;
@@ -275,8 +271,23 @@ int BallOutCallback()
   return 0;
 }
 
+int DisplayCallback()
+{
+  controller1.Screen.clearScreen();
+  controller1.Screen.setCursor(controller1.Screen.row(), 1);
+  controller1.Screen.setCursor(1, 1);
+  controller1.Screen.print("ballCount: %d", ballCount);
+  
+  controller1.Screen.setCursor(controller1.Screen.row(), 3);
+  controller1.Screen.setCursor(3, 1);
+  controller1.Screen.print("rotation:  %f", currentTurn);
+  return 0;
+}
+
 void blue_far_basic()
 {
+  task Display = task(DisplayCallback);
+
   grab_out(100);
   low_lift_up(70);
   wt(0.5);
@@ -296,20 +307,38 @@ void blue_far_basic()
 
   while(ballCount < 3)
   {
-    high_lift_up(100);
-    low_lift_up(70);
-    grab_in(60);
+    high_lift_up(70);
+    low_lift_up(80);
+    grab_in(90);
   }
 
   stopshooting;
 
-  Counting.stop();
 
   task BallOut = task(BallOutCallback);
   wt(0.1);
 
   chassis_run(-2977, 77.7, 271.7-360);
+  BallOut.stop();
+  wt(0.27);
   stopshooting;
+
+  chassis_turn(45.07);
+  wt(0.27);
+
+  grab_in(100);
+  low_lift_up(50);
+
+  chassis_run(1917, 57.7, 48.7);
+
+  double t0 = Brain.timer(sec);
+  while(ballCount < 4 && Brain.timer(sec)-t0 < 1){}
+
+  wt(0.47);
+  grab_out(100);
+
+  chassis_shift(2077, 37.7, 48.7);
+  // stopshooting;
 }
 
 void blue_close_basic()
@@ -409,6 +438,7 @@ void blue_close_shift()
 void test()
 {
   task Counting = task(CountingCallback);
+  
   while(true)
   {
     if(controller1.ButtonA.pressing())
@@ -421,6 +451,11 @@ void test()
     {
       stopshooting;
     }
+
+    controller1.Screen.clearScreen();
+    controller1.Screen.setCursor(controller1.Screen.row(), 1);
+    controller1.Screen.setCursor(1, 1);
+    controller1.Screen.print("ballCount: %d", ballCount);
     wait(20, msec);
   }
 }

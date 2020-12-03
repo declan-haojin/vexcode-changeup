@@ -29,12 +29,12 @@ void autonomous(void) {
 void usercontrol(void) {
   // is_chassis_brake_mood(true);
   // is_m_brake_mood(motorHL, false);
-  test();
-  // while (1) {
-  //   chassis_manual();
-  //   lift_manual();
-  //   wait(20, msec); 
-  // }
+  // test();
+  while (1) {
+    chassis_manual();
+    lift_manual();
+    wait(20, msec); 
+  }
 }
 
 int main() {
