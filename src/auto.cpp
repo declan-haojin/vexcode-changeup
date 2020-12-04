@@ -28,11 +28,11 @@ void chassis_run(double dist, double pw, double turnDeg)
   // double move_kp = 0.49;
   // double move_kd = 3.5;
 
-  double gyro_kp = 1.7;
-  double gyro_kd = 1.02;
+  double gyro_kp = 1.5;
+  double gyro_kd = 1.01;
 
   double move_kp = 0.49;
-  double move_kd = 3.5;
+  double move_kd = 3.47;
 
   double currentDist = 0;
   double diffTurn;
@@ -286,31 +286,35 @@ int DisplayCallback()
   return 0;
 }
 
-void blue_far_basic()
+void auto_left()
 {
   #ifdef DEV
   task Display = task(DisplayCallback);
   #endif
 
+  high_lift_up(70);
   grab_out(100);
   low_lift_up(70);
   wt(0.5);
   grab_in(70);
   wt(0.27);
 
-  chassis_run(3077, 77.7, 0);
+  chassis_run(3377, 77.7, 0);
   wt(0.27);
+  high_lift_locked();
 
-  chassis_turn(270.7-360);
+  chassis_turn(271.7-360);
   wt(0.27);
 
   task Counting = task(CountingCallback);
 
-  chassis_run(3577, 77.7, 271.7-360);
-  wt(0.27);
+  chassis_run(3777, 77.7, 271.7-360);
+
+  chassis(77.7, 77.7);
+  wt(0.17);
 
   t0 = Brain.timer(sec);
-  while(ballCount < 3 && Brain.timer(sec)-t0 < 7)
+  while(ballCount < 3 && Brain.timer(sec)-t0 < 4)
   {
     high_lift_up(70);
     low_lift_up(80);
@@ -333,7 +337,7 @@ void blue_far_basic()
   grab_in(100);
   low_lift_up(50);
 
-  chassis_run(1917, 57.7, 48.7);
+  chassis_run(2217, 57.7, 48.7);
 
   t0 = Brain.timer(sec);
   while(ballCount < 4 && Brain.timer(sec)-t0 < 1){}
@@ -345,57 +349,17 @@ void blue_far_basic()
   // stopshooting;
 }
 
-void blue_close_basic()
-{
-  task Counting = task(CountingCallback);
-
-  grab_out(100);
-  low_lift_up(70);
-  wt(0.5);
-  grab_in(70);
-  wt(0.27);
-
-  chassis_run(3077, 77.7, 0);
-  wt(0.27);
-
-  chassis_turn(93.7);
-  wt(0.27);
-
-  chassis_run(3377, 77.7, 93.7);
-  wt(0.27);
-
-  t0 = Brain.timer(sec);
-  while(ballCount < 3 && Brain.timer(sec)-t0 < 7)
-  {
-    high_lift_up(100);
-  }
-
-  stopshooting;
-  
-  task BallOut = task(BallOutCallback);
-  wt(0.1);
-
-  chassis_run(-2977, 77.7, 93.7);
-  BallOut.stop();
-  wt(0.27);
-
-  chassis_turn(317.1-360);
-  wt(0.27);
-
-  stopshooting;
-}
-
-void blue_close_shift()
+void auto_right()
 {
   // task FirstBallDetected = task(FirstBallDetectedCallback);
-
   grab_out(100);
-  low_lift_up(70);
+  low_lift_up(100);
+  high_lift_up(100);
   wt(0.5);
   grab_in(70);
   wt(0.27);
 
-  chassis_run(3077, 77.7, 0);
+  chassis_run(2877, 77.7, 0);
   wt(0.27);
 
   chassis_turn(93.7);
@@ -403,11 +367,11 @@ void blue_close_shift()
 
   task Counting = task(CountingCallback);
 
-  chassis_run(3577, 77.7, 93.7);
+  chassis_run(4327, 77.7, 93.7);
   wt(0.27);
 
   t0 = Brain.timer(sec);
-  while(ballCount < 3 && Brain.timer(sec)-t0 < 7)
+  while(ballCount < 3 && Brain.timer(sec)-t0 < 4)
   {
     high_lift_up(100);
     low_lift_up(70);
@@ -429,7 +393,7 @@ void blue_close_shift()
   chassis_shift(-4377, 87.7, 317.7-360);
   wt(0.27);
 
-  chassis_run(1377, 77.7, 309.7-360);
+  chassis_run(1777, 77.7, 309.7-360);
   wt(0.27);
 
   stopshooting;

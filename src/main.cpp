@@ -15,12 +15,14 @@ void pre_auton(void) {
 void autonomous(void) {
   // test();
   // chassis_shift(2000, 37.7, 0);
-  // chassis_run(5000, 70, 0);
+  inert_reset();
+  // chassis_run(5000, 77.7, 0);
   // wait(0.5, sec);
   // chassis_turn(90);
   // blue1();
-  // blue_close_shift();
-  blue_far_basic();
+  // auto_right();
+  auto_left();
+  // red_far_basic();
 }
 
 void usercontrol(void) {

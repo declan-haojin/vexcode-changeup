@@ -1,7 +1,7 @@
 using namespace vex;
 using namespace std;
 
-#define DEV
+// #define DEV
 #define SENS                            1.0
 #define AXIS_THRESHOLD                  20
 
