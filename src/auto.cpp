@@ -310,8 +310,10 @@ void auto_left()
 
   chassis_run(3777, 77.7, 271.7-360);
 
-  chassis(77.7, 77.7);
-  wt(0.17);
+  chassis(97.7, 97.7);
+  wt(0.27);
+
+  chassis(0, 0);
 
   t0 = Brain.timer(sec);
   while(ballCount < 3 && Brain.timer(sec)-t0 < 4)
@@ -321,7 +323,9 @@ void auto_left()
     grab_in(90);
   }
 
-  stopshooting;
+  low_lift_locked();
+  high_lift_locked();
+  high_lift_up(70);
 
   task BallOut = task(BallOutCallback);
   wt(0.1);
@@ -337,7 +341,7 @@ void auto_left()
   grab_in(100);
   low_lift_up(50);
 
-  chassis_run(2217, 57.7, 48.7);
+  chassis_run(1887, 57.7, 48.7);
 
   t0 = Brain.timer(sec);
   while(ballCount < 4 && Brain.timer(sec)-t0 < 1){}
@@ -345,7 +349,7 @@ void auto_left()
   wt(0.47);
   grab_out(100);
 
-  chassis_shift(2077, 37.7, 48.7);
+  chassis_shift(2577, 37.7, 48.7);
   // stopshooting;
 }
 
