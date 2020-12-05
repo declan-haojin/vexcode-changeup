@@ -263,7 +263,6 @@ int CountingCallback()
 
 int BallOutCallback()
 {
-  wt(1.17);
   low_lift_down(80);
   grab_out(80);
   high_lift_down(80);
@@ -299,7 +298,7 @@ void auto_left()
   grab_in(70);
   wt(0.27);
 
-  chassis_run(3377, 77.7, 0);
+  chassis_run(3077, 57.7, 0);
   wt(0.27);
   high_lift_locked();
 
@@ -308,12 +307,7 @@ void auto_left()
 
   task Counting = task(CountingCallback);
 
-  chassis_run(3777, 77.7, 271.7-360);
-
-  chassis(97.7, 97.7);
-  wt(0.27);
-
-  chassis(0, 0);
+  chassis_run(3377, 57.7, 271.7-360);
 
   t0 = Brain.timer(sec);
   while(ballCount < 3 && Brain.timer(sec)-t0 < 4)
@@ -323,33 +317,16 @@ void auto_left()
     grab_in(90);
   }
 
-  low_lift_locked();
-  high_lift_locked();
-  high_lift_up(70);
+  stopshooting;
 
   task BallOut = task(BallOutCallback);
   wt(0.1);
 
   chassis_run(-2977, 77.7, 271.7-360);
   BallOut.stop();
+
   wt(0.27);
   stopshooting;
-
-  chassis_turn(45.07);
-  wt(0.27);
-
-  grab_in(100);
-  low_lift_up(50);
-
-  chassis_run(1887, 57.7, 48.7);
-
-  t0 = Brain.timer(sec);
-  while(ballCount < 4 && Brain.timer(sec)-t0 < 1){}
-
-  wt(0.47);
-  grab_out(100);
-
-  chassis_shift(2577, 37.7, 48.7);
   // stopshooting;
 }
 
@@ -363,7 +340,7 @@ void auto_right()
   grab_in(70);
   wt(0.27);
 
-  chassis_run(2877, 77.7, 0);
+  chassis_run(2677, 57.7, 0);
   wt(0.27);
 
   chassis_turn(93.7);
@@ -387,8 +364,11 @@ void auto_right()
   task BallOut = task(BallOutCallback);
   wt(0.1);
 
-  chassis_run(-2977, 77.7, 93.7);
+  chassis_run(-2977, 57.7, 93.7);
   BallOut.stop();
+
+  return;
+
   wt(0.27);
 
   chassis_turn(317.1-360);

@@ -16,13 +16,13 @@ void autonomous(void) {
   // test();
   // chassis_shift(2000, 37.7, 0)\;
   inert_reset();
-  right_one();
+  // right_one();
   // chassis_run(3000, 77.7, 0);
   // wait(0.5, sec);
   // chassis_turn(90);
   // blue1();
   // auto_right();
-  // auto_left();
+  auto_left();
   // red_far_basic();
 }
 
