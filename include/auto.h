@@ -15,4 +15,6 @@ void chassis_turn(double target);
 void auto_left();
 void auto_right();
 
+void right_one();
+
 void switch_accessibility_test();
