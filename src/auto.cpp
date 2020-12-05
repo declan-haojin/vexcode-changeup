@@ -424,33 +424,49 @@ int FirstBallDetectedCallback()
 
 void right_one()
 {
+  task Counting = task(CountingCallback);
+
   low_lift_up(100);
   high_lift_up(100);
   wt(0.77);
   low_lift_locked();
   high_lift_locked();
 
-  task Counting = task(CountingCallback);
-  wt(0.27);
-    
-  chassis_run(2327, 77.7, 93.7);
-  wt(0.27);
+
+  grab_in(100);
+  low_lift_up(70);
+
+  chassis_run(2227, 57.7, 0);
+  // wt(0.17);
+
+  
+  high_lift_up(100);
+
+  wt(0.5);
+
+  // chassis(-70, -70);
+  // wt(0.77);
+
+  // chassis(100, 100);
+  // wt(1);
 
   t0 = Brain.timer(sec);
-  while(ballCount < 3 && Brain.timer(sec)-t0 < 4)
+
+  while(ballCount < 4 && Brain.timer(sec)-t0 < 5)
   {
-    high_lift_up(100);
-    low_lift_up(70);
-    grab_in(60);
+    low_lift_up(100);
+    grab_in(80);
   }
 
+  // FirstBallDetected.stop();
   stopshooting;
   
   task BallOut = task(BallOutCallback);
   wt(0.1);
 
-  chassis_run(-2077, 57.7, 93.7);
+  chassis_run(-1977, 57.7, 0);
   BallOut.stop();
+
 }
 
 void switch_accessibility_test()
