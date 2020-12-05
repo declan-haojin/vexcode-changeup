@@ -434,19 +434,22 @@ void right_one()
 
   
   grab_in(100);
+  low_lift_up(100);
+
+
   chassis_run(2227, 57.7, 0);
   // wt(0.17);
 
-  low_lift_up(70);
   high_lift_up(100);
-
+  
+  
   wt(0.5);
 
-  chassis(-70, -70);
-  wt(0.77);
+  // chassis(-70, -70);
+  // wt(0.77);
 
-  chassis(100, 100);
-  wt(1);
+  // chassis(100, 100);
+  // wt(1);
 
   t0 = Brain.timer(sec);
 
